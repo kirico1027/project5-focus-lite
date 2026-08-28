@@ -1,0 +1,129 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+.works-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+// ----- WORKS 一覧 -----
+// 一覧末尾 → Footer 直上まで余白なし（Footer padding-top で PAGETOP まで確保）
+
+.works-list__inner {
+  // .container の padding-inline をそのまま使う（1420px 本文幅 @1920）
+}
+
+.works-list__items {
+  border-top: 1px solid var(--color-line);
+}
+
+.works-list__item {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.works-list__link {
+  display: flex;
+  align-items: center;
+  gap: rem(40);
+  min-height: rem(124);
+  padding-block: rem(22);
+  box-sizing: border-box;
+  transition: opacity 0.2s ease;
+
+  @include mq {
+    gap: rem(16);
+    min-height: rem(96);
+    padding-block: rem(16);
+  }
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: -2px;
+  }
+}
+
+.works-list__meta {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 rem(74);
+  width: rem(74);
+  min-width: 0;
+
+  @include mq {
+    flex-basis: rem(64);
+    width: rem(64);
+  }
+}
+
+.works-list__label {
+  font-family: var(--font-en);
+  font-weight: 400;
+  font-size: rem(12);
+  line-height: rem(18);
+  letter-spacing: rem(2.4);
+  white-space: nowrap;
+
+  @include mq {
+    font-size: rem(11);
+    letter-spacing: rem(2);
+  }
+}
+
+.works-list__date {
+  font-family: var(--font-en);
+  font-weight: 400;
+  font-size: rem(10);
+  line-height: rem(15);
+  letter-spacing: rem(2);
+  white-space: nowrap;
+
+  @include mq {
+    font-size: rem(10);
+    letter-spacing: rem(1.6);
+  }
+}
+
+.works-list__rule {
+  flex: 0 0 1px;
+  align-self: stretch;
+  width: 1px;
+  min-height: rem(80);
+  background: var(--color-line);
+
+  @include mq {
+    min-height: rem(56);
+  }
+}
+
+.works-list__title {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: rem(28);
+  line-height: rem(30.8);
+  letter-spacing: 0;
+
+  @include mq {
+    @include fluid-sp-range(font-size, 16, 28);
+    @include fluid-sp-range(line-height, 22, 30.8);
+  }
+}
+
+.works-list__icon {
+  display: flex;
+  flex: 0 0 rem(24);
+  align-items: center;
+  justify-content: center;
+  width: rem(24);
+  height: rem(24);
+}
+
+.works-list__icon-svg {
+  width: rem(24);
+  height: rem(24);
+}

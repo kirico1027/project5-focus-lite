@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    @@include('partials/head.html', { "title": "WORKS | TAKAHIRO KOBAYASHI" })
+  </head>
+  <body>
+    <!-- WP: archive-works.php / WORKS 一覧 -->
+    @@include('partials/header.html')
+
+    <main class="works-page">
+      @@include('partials/page-hero.html', {
+        "heroModifier": "",
+        "heroHeadingId": "works-hero-heading",
+        "heroTitleEn": "WORKS"
+      })
+
+      <section class="works-list" aria-label="WORKS一覧">
+        <div class="works-list__inner container">
+          <ul class="works-list__items">
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "STREET CIPHER DOCUMENTARY"
+            })
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "RAINY CITY BLUES CAMPAIGN"
+            })
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "CONCRETE POETRY FEATURE"
+            })
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "MIDNIGHT FRAME SHORT FILM"
+            })
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "UNDERGROUND VIBES LOOKBOOK"
+            })
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "CROSSWALK STORIES EDITORIAL"
+            })
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "BACKSTREET VOICES MV"
+            })
+            @@include('partials/cards/works-item.html', {
+              "href": "#",
+              "label": "UPDATE",
+              "datetime": "2025-08-31",
+              "date": "2025/08/31",
+              "title": "ALLEYWAY SESSIONS PHOTOBOOK"
+            })
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    @@include('partials/footer.html')
+    <script src="./public/assets/js/script.js?v=2"></script>
+  </body>
+</html>
