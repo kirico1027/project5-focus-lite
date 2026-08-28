@@ -1,0 +1,210 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+.top-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  color: var(--color-text);
+  background-color: transparent;
+}
+
+.top-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: rem(1920);
+  margin-inline: auto;
+  min-height: var(--header-height);
+  padding: rem(34) rem(80) rem(22);
+  box-sizing: border-box;
+  column-gap: rem(16);
+
+  @include mq-header {
+    grid-template-columns: 1fr auto 1fr;
+    padding-inline: rem(20);
+    padding-block: rem(16);
+  }
+}
+
+.top-header__nav {
+  display: flex;
+  align-items: center;
+  gap: rem(32);
+  min-width: 0;
+
+  @include mq-header {
+    display: none;
+  }
+}
+
+.top-header__nav--end {
+  justify-content: flex-end;
+}
+
+.top-header__link {
+  position: relative;
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(12);
+  line-height: rem(14.4);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: rem(-4);
+    width: 0;
+    height: 1px;
+    background: var(--color-text);
+    transition: width 0.2s ease;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    width: 100%;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+}
+
+.top-header__logo {
+  display: inline-block;
+  justify-self: center;
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: rem(18);
+  line-height: rem(19.8);
+  text-align: center;
+  white-space: nowrap;
+
+  @include mq-header {
+    grid-column: 2;
+    justify-self: center;
+    font-size: rem(18);
+    line-height: rem(20);
+  }
+}
+
+.top-header__logo-line {
+  display: block;
+}
+
+.top-header__menu-toggle {
+  display: none;
+  position: relative;
+  z-index: 120;
+  width: rem(44);
+  height: rem(44);
+  justify-self: end;
+
+  @include mq-header {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: rem(6);
+    grid-column: 3;
+    justify-self: end;
+  }
+}
+
+.top-header__menu-toggle-bar {
+  display: block;
+  width: rem(22);
+  height: 1px;
+  background: var(--color-text);
+  transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
+  position: relative;
+}
+
+.top-header--menu-open .top-header__menu-toggle-bar:nth-child(1) {
+  transform: translateY(rem(7)) rotate(45deg);
+}
+
+.top-header--menu-open .top-header__menu-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.top-header--menu-open .top-header__menu-toggle-bar:nth-child(3) {
+  transform: translateY(rem(-7)) rotate(-45deg);
+}
+
+.top-header__drawer {
+  display: none;
+
+  @include mq-header {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 110;
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+.top-header--menu-open .top-header__drawer {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.top-header__drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.top-header--menu-open .top-header__drawer-backdrop {
+  opacity: 1;
+}
+
+.top-header__drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(100%, rem(320));
+  height: 100%;
+  padding: rem(96) rem(28) rem(40);
+  background: var(--color-bg);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  box-sizing: border-box;
+}
+
+.top-header--menu-open .top-header__drawer-panel {
+  transform: translateX(0);
+}
+
+.top-header__drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: rem(28);
+}
+
+.top-header__drawer-link {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(14);
+  letter-spacing: 0.12em;
+}
+
+.top-header__drawer-close {
+  position: absolute;
+  top: rem(16);
+  right: rem(16);
+  width: rem(44);
+  height: rem(44);
+  font-size: rem(12);
+  letter-spacing: 0.08em;
+}

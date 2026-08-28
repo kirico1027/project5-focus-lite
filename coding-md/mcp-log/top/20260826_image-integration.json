@@ -1,0 +1,19 @@
+{
+  "source": "image-integration",
+  "nodeId": "1:935",
+  "fetchedAt": "2026-08-26T01:52:00+09:00",
+  "page": "top",
+  "mapping": {
+    "focus-01.jpeg": "hero-left",
+    "focus-02.jpeg": "hero-right",
+    "focus-03.jpeg": "home-nav-profile",
+    "focus-04.jpeg": "home-nav-works",
+    "focus-05.jpeg": "home-nav-gallery"
+  },
+  "checks": {
+    "1920": { "hasHScroll": false, "cards": "459x300" },
+    "768": { "hasHScroll": false },
+    "375": { "hasHScroll": false },
+    "consoleErrors": []
+  }
+}

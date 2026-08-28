@@ -1,0 +1,40 @@
+@use "../foundation/functions" as *;
+@use "../foundation/mixins" as *;
+
+.container {
+  width: 100%;
+  max-width: rem(1580);
+  margin-inline: auto;
+  padding-inline: rem(80);
+  box-sizing: border-box;
+
+  @include mq {
+    @include fluid-sp-range(padding-inline, 20, 40);
+  }
+}
+
+.l-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  @include fluid-padding-inline(rem(16), 4vw, rem(24));
+}
+
+// 他案件由来の inset（本サイト本文は .container を正）
+.l-inset-comp-1920 {
+  box-sizing: content-box;
+  max-width: rem(1200);
+  padding-left: clamp(
+    #{rem(30)},
+    #{layout-inset-comp-calc(360, 1920, 375, 0.195)},
+    #{rem(360)}
+  );
+  padding-right: clamp(
+    #{rem(30)},
+    #{layout-inset-comp-calc(360, 1920, 375, 0.195)},
+    #{rem(360)}
+  );
+  margin-left: auto;
+  margin-right: auto;
+}

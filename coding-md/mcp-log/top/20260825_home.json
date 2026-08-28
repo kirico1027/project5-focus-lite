@@ -1,0 +1,14 @@
+{
+  "source": "get_design_context",
+  "nodeId": "1:935",
+  "fetchedAt": "2026-08-25T16:10:00+09:00",
+  "page": "top",
+  "section": "home-frame",
+  "notes": "HOME FOCUS LITE full frame. Variables empty. Hero/card images empty frames.",
+  "data": {
+    "width": 1920,
+    "height": 3031,
+    "background": "#000000",
+    "sections": ["Header", "Hero", "Message", "home-nav", "NEWS", "Footer"]
+  }
+}

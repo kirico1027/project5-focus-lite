@@ -1,0 +1,17 @@
+---
+description: Hero Viewport 本案件数値 — FOCUS LITE HOME
+globs: src/sass/pages/top/**/*.scss,src/templates/index.html
+alwaysApply: false
+---
+
+# Hero Viewport Height（本案件）
+
+**高さ・FOUC・下層分離の正**は `hero-viewport.mdc`。
+
+## 本案件の束縛
+
+- 対象: `src/templates/index.html` の `<section class="hero">` のみ。下層 `.page-hero` は対象外
+- スタイル単一ソース: `src/sass/pages/top/_top.scss`
+- 上 padding: 固定ヘッダー分（80px）+ `env(safe-area-inset-top)`
+- PC カンプ: セクション高さ相当 `min-height: rem(968)`（内容で伸縮可）
+- 下 padding: `env(safe-area-inset-bottom)`

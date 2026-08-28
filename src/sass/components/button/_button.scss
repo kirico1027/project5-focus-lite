@@ -1,0 +1,59 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: rem(160);
+  height: rem(44);
+  padding: 0 1em;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(13);
+  line-height: rem(15.6);
+  letter-spacing: 0.4em;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+
+  @include mq {
+    min-width: rem(132);
+    height: rem(40);
+    font-size: rem(11);
+    letter-spacing: 0.28em;
+  }
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
+  }
+}
+
+.btn--fill {
+  background-color: var(--color-border);
+  color: var(--color-text-inverse);
+
+  @include mq {
+    gap: 0.6em;
+
+    &::before {
+      content: "";
+      width: rem(10);
+      height: 1px;
+      background: currentColor;
+    }
+  }
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text);
+}

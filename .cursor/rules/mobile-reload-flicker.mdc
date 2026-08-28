@@ -1,0 +1,58 @@
+---
+description: モバイル scroll 0 リロード時のちらつき対策（汎用・確定版）
+globs: src/partials/head.html,src/sass/foundation/_reset.scss,src/templates/**/*.html
+alwaysApply: false
+---
+
+# Mobile Reload Flicker（汎用）
+
+## 症状
+
+768px 以下で **scroll 0 のままリロード**すると、画面下端に次セクションが一瞬ちらつく。少しスクロールしてからリロードすると出ない。全ページで起きうる。
+
+## 原因
+
+モバイルのアドレスバー表示でビューポート高さが読み込み後に変わる。scroll 0 だと下端の別背景が覗く。
+
+## 確定対処（この組み合わせのみ）
+
+### 1. 共通 head（viewport メタの **後**）
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<script>
+  document.documentElement.classList.add("js");
+  (function () {
+    var mobileQuery = "(max-width: 768px)";
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    function snapMobileBelowTop() {
+      if (!window.matchMedia(mobileQuery).matches) return;
+      if (window.scrollY < 1) window.scrollTo(0, 1);
+    }
+    snapMobileBelowTop();
+    document.addEventListener("DOMContentLoaded", snapMobileBelowTop);
+    window.addEventListener("pageshow", snapMobileBelowTop);
+    window.addEventListener("load", snapMobileBelowTop);
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", snapMobileBelowTop);
+    }
+  })();
+</script>
+```
+
+- 実行は **head 内 1 箇所のみ**（body / 本体 JS への重複はジャンプの原因）
+
+### 2. reset（SP）
+
+```scss
+@media (max-width: 768px) {
+  html { min-height: calc(100% + 1px); }
+}
+```
+
+## 禁止
+
+- 境界を 480px だけにする（レイアウト境界の `mq` に合わせる）
+- `scroll` イベントだけで reveal 有効化
+- `scrollTo` の多重呼び出し
+- viewport メタより前にスナップ script を置く

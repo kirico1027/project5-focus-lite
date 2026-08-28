@@ -1,0 +1,17 @@
+:root {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-text-inverse: #000000;
+  --color-border: #ffffff;
+  --color-line: #333333;
+  --color-muted: #cccccc;
+  --color-required: #bf2325;
+  --color-form-bg: #222222;
+  --container-max: 98.75rem; /* 1580px */
+  --content-max: 88.75rem; /* 1420px */
+  --font-en: "Poppins", sans-serif;
+  --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo,
+    sans-serif;
+  --font-body: var(--font-en), var(--font-ja), sans-serif;
+  --header-height: 5rem; /* 80px */
+}

@@ -1,0 +1,39 @@
+---
+description: Safari 横インセット不具合の確定修正（cover 画像は safari-cover-media.mdc）
+globs: src/sass/layout/_container.scss,src/sass/components/figma-media/**/*.scss
+alwaysApply: false
+---
+
+# Safari Layout Inset（案件束縛）
+
+**cover 画像の崩れ**は `safari-cover-media.mdc`。ここでは **横インセット**（例: `.l-inset-comp-1920`）のみ。案件に該当クラスが無ければ適用しない。
+
+## 症状
+
+Safari のみ、`.l-inset-comp-1920` 配下で左右 padding が消える／左だけ無い。
+
+## やってはいけない
+
+```scss
+width: min(1200px, calc(100% - 2 * var(--inset-inline))); // 宣言ごと無効になりやすい
+width: 100%; margin-left/right: clamp(...); // 左だけ潰れる
+width: min(75rem, 100% - 2 * var(--inset-inline)); // Sass が calc を剥がす場合も同様
+```
+
+## 確定修正（`_container.scss`）
+
+```scss
+.l-inset-comp-1920 {
+  box-sizing: content-box;
+  max-width: rem(1200);
+  padding-left: clamp(#{rem(30)}, layout-inset-comp-calc(...), #{rem(360)});
+  padding-right: clamp(#{rem(30)}, layout-inset-comp-calc(...), #{rem(360)});
+  margin-left: auto;
+  margin-right: auto;
+}
+```
+
+- `min()` / `calc(100% - …)` / `var(--inset-inline)` は使わない
+- 物理 `padding-left/right` + `content-box` + `max-width`
+
+変更後は `npm run build`。Safari で computed padding が 0 でないか確認。

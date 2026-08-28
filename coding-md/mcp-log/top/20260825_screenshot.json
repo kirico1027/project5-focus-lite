@@ -1,0 +1,26 @@
+{
+  "source": "get_screenshot",
+  "nodeId": "1:935",
+  "fetchedAt": "2026-08-25T16:20:00+09:00",
+  "page": "top",
+  "section": "home-full",
+  "figmaScreenshotNote": "MCP returns image in session; compared against Playwright site screenshots",
+  "siteScreenshots": [
+    "coding-md/screenshots/home-full_fullpage_pc_20260825_162015.png",
+    "coding-md/screenshots/home-full_fullpage_sp_20260825_162015.png",
+    "coding-md/screenshots/home-full_1920.png",
+    "coding-md/screenshots/home-full_768.png",
+    "coding-md/screenshots/home-full_375.png",
+    "coding-md/screenshots/home-full_1920_r2.png"
+  ],
+  "rounds": 2,
+  "overflow": {
+    "1920": false,
+    "768": false,
+    "375": false
+  },
+  "adjustments": [
+    "Footer brand vertical clip (max-height)",
+    "home-nav card border removed to match empty Figma frames"
+  ]
+}

@@ -1,0 +1,136 @@
+---
+description: fluid 実装 API（汎用）— fluid-sp/pc-range 第一選択・fluid-spacing は補助
+globs: src/sass/**/*.scss,src/**/*.html
+alwaysApply: true
+---
+
+# レスポンシブ・fluid 実装 API（汎用）
+
+**工程**: `responsive-build-workflow.mdc`。**数値・サイト固有の例**: 各プロジェクトの `site-layout-tokens.mdc`。
+
+## 第一選択: 幅基準点間の線形補間
+
+| 帯 | ミキシン | 典型レンジ |
+|----|---------|-----------|
+| SP | `fluid-sp-range` | `$sp-min-vw`（375）→ `$sp-max-vw`（768） |
+| PC | `fluid-pc-range` | `$pc-min-vw`（769）→ `$max-vw`（コンテナ最大 or カンプ幅） |
+
+```scss
+@include fluid-sp-range(padding-top, $px-at-sp-min, $px-at-sp-max);
+@include fluid-pc-range(font-size, $px-at-pc-min, $px-at-comp);
+@include fluid-pc-range(padding-bottom, $a, $b, $max-vw: $comp-width);
+@include fluid-pc-range(margin-top, $pc-min, $pc-max, $sp-px: $sp-only);
+```
+
+## SP 帯の書き方（原則）
+
+**`fluid-sp-range` は `@include mq`（max-width: 768px）内に書く。** ベースに書くと 769px 以上にも `clamp` の max が効き、カンプが潰れる。
+
+**768px 端 ≠ カンプ値** — タイポ（ベースにカンプ `rem()`、SP のみ mq 内）:
+
+```scss
+.block__title {
+  font-size: rem($comp-px); // カンプ固定
+}
+@include mq {
+  .block__title {
+    @include fluid-sp-range(font-size, $sp-min-px, $sp-max-px);
+  }
+}
+```
+
+**768 端 ≠ カンプ値** — 余白・margin（ベース PC、SP は mq 内）:
+
+```scss
+.block__section {
+  @include fluid-pc-range(margin-top, $pc-min-px, $comp-px);
+}
+@include mq {
+  .block__section {
+    @include fluid-sp-range(margin-top, $sp-min-px, $sp-max-px);
+  }
+}
+```
+
+**768 端 = 769px = カンプ値** — ベース `fluid-pc-range` のみで足りることもある。SP だけ別値なら mq 内に `fluid-sp-range` を足す。
+
+## PC 帯の書き方
+
+- **769px 幅の修正** = `fluid-pc-range` の **第2引数**（`min-width: 769px` の clamp min）
+- ベースセレクタに `@include fluid-pc-range(...)` を書く（`@include mq` 内だけに書かない）
+- **769〜コンテナ最大の手前まで**（カンプ不変）→ サイトの狭い PC 帯用 mq（本サイト: `@include mq-top-pc-narrow { ... }`）
+
+```scss
+@include fluid-pc-range(font-size, $pc-min-px, $comp-px);
+```
+
+## 禁止（同一プロパティ）
+
+- ベースに **`fluid-sp-range` のみ**
+- ベースに **`fluid-pc-range` + `fluid-sp-range` を併記**（SP は必ず `@include mq` 内へ）
+
+### `$max-vw` の使い分け（汎用）
+
+`fluid-pc-range` の第4引数 `$max-vw` は **clamp が線形補間する上限のビューポート幅**。
+
+| 種類 | いつ使う |
+|------|---------|
+| **コンテナ最大（デフォルト）** | タイポ・2カラム gap・カード幅・padding-inline など **コンテナ内**のプロパティ |
+| **カンプ幅** | セクション外周・ヒーロー帯など **コンテナを超えてカンプ端まで**伸ばす余白 |
+
+- **迷ったらコンテナ最大**。カンプ外周だけカンプ幅を渡す。
+- **各サイトの具体値・要素別の選択**は `site-layout-tokens.mdc` を正とする。
+
+### 狭い2カラム（769〜コンテナ最大の手前）— flex 比率維持
+
+固定幅の合計がコンテナ内に収まらないとき、**狭い PC 帯用 mq 内**でカンプ比率を flex に置き換える。gap は **`fluid-pc-range`**（769→コンテナ最大）。**コンテナ最大以上はカンプ固定幅のまま**。
+
+```scss
+@include mq-narrow-pc { // サイトごとのミキシン名に読み替え
+  .block__content {
+    flex: $left-comp-px 1 0;
+    width: auto;
+    max-width: none;
+  }
+  .block__visual {
+    flex: $right-comp-px 1 0;
+    width: auto;
+    max-width: none;
+  }
+  // ビジュアル縮小が必要ならサイト用 scale mixin を呼ぶ
+}
+```
+
+- 比率は **カンプの左右 px 比**
+- **本サイトの実装例**（Purpose 550:538 等）は `site-layout-tokens.mdc`「狭い2カラム」を参照
+
+### コンテナ最大とカンプ幅の関係
+
+- **`fluid-pc-range` の `$max-vw` デフォルト** = サイトのコンテナ最大
+- **コンテナ最大以降〜カンプ幅**は clamp の max で**固定**（追加の vw 伸びなし）
+- カンプ端で別値にしたいときだけ **`$max-vw: カンプ幅`**
+
+## 補助: `fluid-spacing`（vw 中央項）
+
+- **`clamp(rem, vw, rem)`** — 下層ページ未移行・単独ブロック向け
+- **トップページ新規・修正**では **`fluid-sp-range` / `fluid-pc-range` を優先**し、触るタイミングで vw 中央から線形補間へ寄せる
+- 裸の `vw` のみは禁止
+
+```scss
+// 補助（移行中のみ推奨）
+@include fluid-padding-y(rem(64), 10vw, rem(120));
+```
+
+## コンテナ系の二系統（混同しない）
+
+| クラス | 用途 |
+|--------|------|
+| `.container` | 標準コンテナ（サイトごとに定義が異なる） |
+| サイト固有の inset クラス | 別カンプ系ページ用（例: `.l-inset-comp-1920`） |
+
+**どちらを正とするか・ページ別上書き**は `site-layout-tokens.mdc` に書く。
+
+## やらないこと
+
+- 工程③前に clamp 全面適用
+- コンパイル後 CSS 手編集

@@ -1,0 +1,62 @@
+---
+description: 案件固有トークン — FOCUS LITE
+globs: src/sass/**/*.scss,src/**/*.html
+alwaysApply: true
+---
+
+# サイトレイアウトトークン（FOCUS LITE）
+
+**工程・実装 API** は `responsive-build-workflow.mdc` / `responsive-fluid-pattern.mdc`。  
+**タイポ** は `typography-rem-clamp.mdc`。
+
+## 基準点（工程 ①③ で確定）
+
+| 項目 | 値 |
+|------|-----|
+| カンプ幅 | `1920px` |
+| SP 最小 | `375px` |
+| 列切替 | `768px`（SP） / `769px`（PC） |
+| コンテナ最大（ボックス） | `1580px`（内側 padding 80 → 本文 `1420px`） |
+| 狭い PC 帯用 mq | `@include mq-top-pc-narrow`（769〜1579） |
+
+**検証幅**: `375` → `768` → `767` / `769` → `1580` → `1920`
+
+## コンテナ
+
+- `.container`: `max-width: 1580px`、`padding-inline: 80px`（PC カンプ）
+- SP: `padding-inline` は `fluid-sp-range` **20px（375）→ 40px（768）**
+- `.l-inset-comp-1920` は他案件由来。本サイトの本文は `.container` を正とする
+
+## fluid レンジ（本サイト）
+
+| 用途 | `$min-vw` | `$max-vw` |
+|------|-----------|-----------|
+| SP | `375` | `768` |
+| PC 標準（コンテナ内） | `769` | `1580` |
+| PC カンプ外周 | `769` | `1920` |
+
+## 狭い2カラム（769〜1579）
+
+- HOME 導線カードは 3 列 → SP で 1 列積み
+- Hero 写真は PC 左右 2 列、SP では上下 50/50 積み（inset 8px の黒枠）
+
+## タイポグラフィ例外
+
+| 要素 | ルール |
+|------|--------|
+| Footer 巨大ロゴ | PC 172.8px（1920）。SP 最小 33.75px（375）。`clamp(33.75px, 9vw, 172.8px)` で全幅可変・左右見切れ比率一定 |
+| Hero 名前 | カンプ 64px。SP は `fluid-sp-range` 40–48（375px で 40px） |
+
+## ページ別・確定 clamp / 固定値
+
+| 要素 | 帯 | 値 |
+|------|-----|-----|
+| Header 高さ | PC | 80px |
+| Hero min-height | PC | 968px（min-height + padding） |
+| Hero min-height | SP | 100svh。写真上下分割、名前は画面中央 |
+| Hero 名前 | SP | font-size 40–48 / line-height 46–54。2行・中央・左右はみ出しなし |
+| セクション下余白 | PC | 160px |
+
+## 未移行・後回し
+
+- PROFILE / NEWS ページ未制作（リンク仮）

@@ -1,0 +1,114 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+.site-footer {
+  padding: rem(220) rem(80) rem(80);
+  text-align: center;
+  overflow: hidden;
+
+  @include mq {
+    padding: rem(96) rem(20) rem(48);
+  }
+}
+
+.site-footer__pagetop {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8);
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(13);
+  line-height: rem(15.6);
+  letter-spacing: 0.1em;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+}
+
+.site-footer__pagetop-icon {
+  width: rem(24);
+  height: rem(24);
+  flex-shrink: 0;
+}
+
+.site-footer__brand {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(12);
+  margin-inline: rem(-80);
+  overflow: hidden;
+
+  @include mq {
+    margin-inline: rem(-20);
+  }
+}
+
+.site-footer__brand-text {
+  flex: 0 0 auto;
+  width: max-content;
+  font-family: var(--font-en);
+  font-weight: 700;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-align: center;
+  // 375px=33.75 / 1920px=172.8 → 9vw。文字幅比が一定で左右見切れも全幅同じ比率
+  font-size: clamp(#{rem(33.75)}, 9vw, #{rem(172.8)});
+  line-height: clamp(#{rem(33.75)}, 9vw, #{rem(172.8)});
+}
+
+.site-footer__rule {
+  width: rem(20);
+  height: 1px;
+  margin: rem(50) auto 0;
+  background: var(--color-text);
+
+  @include mq {
+    margin-top: rem(28);
+  }
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: rem(32);
+  margin-top: rem(60);
+
+  @include mq {
+    gap: rem(20) rem(24);
+    margin-top: rem(36);
+  }
+}
+
+.site-footer__link {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(12);
+  line-height: rem(14.4);
+  letter-spacing: 0.1em;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+}
+
+.site-footer__copy {
+  margin-top: rem(22);
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(10);
+  line-height: rem(12);
+  letter-spacing: 0.1em;
+}

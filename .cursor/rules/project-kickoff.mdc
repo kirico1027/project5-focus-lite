@@ -1,0 +1,62 @@
+---
+description: 新規サイト制作のコーディング前キックオフ（工程 0）
+alwaysApply: true
+---
+
+# プロジェクトキックオフ（工程 0）
+
+新規サイト制作では、**いきなりコーディングを開始しない**。  
+詳細は `coding-md/00-project-kickoff/WORKFLOW_00_PROJECT_KICKOFF.md` を正とする。
+
+## コーディング開始前にやること
+
+1. **トップページ全体を確認**し、以下を整理する
+   - 共通レイアウト幅 / 左右余白 / セクション間余白
+   - Header / Footer / Section Heading / Button / CTA / Card 系パーツ
+   - WordPress 化時に template-parts 化すべき要素
+2. **`commonization-plan.md` を作成**し、共通化方針を提案する
+3. **WordPress 化案件**の場合、工程 0 で `WORDPRESS_DESIGN.md` を作成する（設計テンプレートは `wordpress-base` 側を参照。静的ベースには WP 設計一式を置かない）
+
+## 静的コーディングのレスポンシブ
+
+| 種別 | ルール |
+|------|--------|
+| 工程（汎用） | `responsive-build-workflow.mdc` |
+| 実装 API（汎用） | `responsive-fluid-pattern.mdc` |
+| タイポ（汎用） | `typography-rem-clamp.mdc` |
+| 数値・例外（案件固有） | `site-layout-tokens.mdc` |
+
+## 静的コーディングの構成（汎用）
+
+| 種別 | ルール |
+|------|--------|
+| templates / partials | `templates-partials.mdc` |
+| 下層ヒーロー | `page-hero.mdc` |
+| フォーム | `form-patterns.mdc` |
+| Sass 登録 | `sass-structure.mdc` |
+| アーカイブ一覧 | `archive-filter-cards.mdc` |
+| アコーディオン | `details-accordion.mdc` |
+| `?v=` | `cache-buster.mdc` |
+
+## インタラクション・アニメ（汎用）
+
+| 種別 | ルール |
+|------|--------|
+| Scroll / Load reveal | `scroll-reveal.mdc` |
+| アーカイブ Opening | `archive-opening-reveal.mdc` |
+| ヘッダードロワー | `header-drawer.mdc` |
+| トップ FV 高さ | `hero-viewport.mdc` |
+| モバイルリロードちらつき | `mobile-reload-flicker.mdc` |
+| Safari cover 画像 | `safari-cover-media.mdc` |
+| 横ドラッグスライダー | `drag-scroll-slider.mdc` |
+
+案件のクラス名・数値は、上記に対応する `*-menu` / `hero-viewport-height` / `safari-layout-inset` / `subpage-scroll-reveal` 等に閉じる。
+
+## 後続工程
+
+```
+工程 0（キックオフ）→ 工程 1（フォント・カラー）→ 工程 3（コンポーネント検出）→ 工程 4（コーディング）
+```
+
+- 工程 3 は工程 0 の `commonization-plan.md` を詳細化する
+- 工程 3 の手順は `coding-md/03-component-detection/WORKFLOW_03_COMPONENT_DETECTION.md`

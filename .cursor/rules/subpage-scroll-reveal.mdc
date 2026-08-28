@@ -1,0 +1,27 @@
+---
+description: 下層ページの scroll-reveal 手順（汎用核は scroll-reveal.mdc）
+globs: src/templates/**/*.html,src/sass/pages/**/*.scss,src/public/assets/js/**/*.js
+alwaysApply: false
+---
+
+# 下層ページ scroll-reveal（本案件）
+
+**アーキテクチャの正**は `scroll-reveal.mdc`。ここでは本案件の手順と関数名だけを記す。
+
+## 本案件の型
+
+| 種類 | クラス | JS |
+|------|--------|-----|
+| イントロ | `js-load-reveal` | `initLoadReveal` / `init<Page>IntroReveal` |
+| 以降 | `js-scroll-reveal` | `initScrollRevealAnimateVisible` |
+
+- 初回・リロードの画面内要素 → `initScrollRevealAnimateVisible`（`is-inview` のみ）
+- bfcache → `pageshow` でのみ `prime<Page>*IfVisible`
+- **`primeScrollRevealIfVisible` / 初回 boot の一括 prime に下層を混ぜない**
+
+## 追加チェックリスト
+
+1. HTML: イントロに `js-load-reveal`、本文に `js-scroll-reveal`
+2. SCSS: `html.js.scroll-reveal-active .<page>-page` 配下（`scroll-reveal.mdc` の型）
+3. JS: `init` ×2 を `bootScrollReveal` へ、`prime` ×2 を `pageshow` のみへ
+4. `npm run build`（`site-reflect-on-request.mdc`）

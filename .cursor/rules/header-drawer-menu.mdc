@@ -1,0 +1,24 @@
+---
+description: Header Drawer 本案件束縛 — FOCUS LITE
+globs: src/**/*.{html,scss,js}
+alwaysApply: true
+---
+
+# Header Drawer（本案件の束縛）
+
+**パターンの正**は `header-drawer.mdc`。
+
+| 役割 | 本案件 |
+|------|--------|
+| ブロック | `.top-header` |
+| 開状態 | `top-header--menu-open` |
+| トグル | `top-header__menu-toggle` |
+| バー | `top-header__menu-toggle-bar` |
+| 補助閉じ | `top-header__drawer-close`（主役はトグル） |
+| スタイル単一ソース | `src/sass/components/header/_header.scss` |
+| JS | `src/public/assets/js/script.js` → `initHeaderDrawer` |
+
+```js
+header.classList.toggle("top-header--menu-open", open);
+toggle.setAttribute("aria-expanded", open ? "true" : "false");
+```

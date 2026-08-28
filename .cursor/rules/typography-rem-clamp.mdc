@@ -1,0 +1,79 @@
+---
+description: タイポグラフィ専用（汎用）— rem段階・説明文PC16/SP14・見出しfluid・margin-top・em padding
+globs: src/sass/**/*.scss,src/**/*.html
+alwaysApply: true
+---
+
+# タイポグラフィ・ブロック間隔（汎用）
+
+**サイト幅の工程・余白の fluid 補間**は **`responsive-build-workflow.mdc` / `responsive-fluid-pattern.mdc`**。**本サイトの数値**は **`site-layout-tokens.mdc`**。
+
+本ルールは **文字サイズ・行間・ブロック間 `margin-top`・UI 内側 `em` padding** に限定する。セクション外周の `padding` や幅帯ごとの clamp は fluid パターンルールを正とする。
+
+## セクション説明文（PC 16px / SP 14px）
+
+- **ページ見出し・セクション英字・ヒーローリード**には適用しない。
+- 説明段落は **`@mixin section-copy-font-size`**（PC `rem(16)` / `@include mq` 以下 `rem(14)`）。
+- ユーティリティ **`.section-body`** に集約し、個別セレクタと二重指定しない。
+- **サイト固有の例外**（例: About 本文 15px 固定）は **`site-layout-tokens.mdc`** に列挙する。
+
+## ボタンラベル（PC 16px / SP 14px）
+
+- 標準 `.btn` / ヒーロー CTA → **`@mixin button-label-font-size`**
+- **`.btn--dark`** は `rem(14)` 固定のためミックスイン不要
+
+## タイポの二本柱
+
+1. **UI・ラベル・注釈** … **`rem()` 段階指定**
+2. **大きな見出し** … **カンプ幅 = ベース固定 `rem()`**。**SP 帯**（768 端 ≠ カンプ値）は **`@include mq` + `fluid-sp-range`**。**PC 帯**（769 〜 コンテナ最大で値が変わる）は **`fluid-pc-range`**（`responsive-fluid-pattern.mdc`）
+
+```scss
+// ✅ SP 端 ≠ カンプ値の大見出し（工程④）
+.block__title {
+  font-size: rem($comp-px);
+}
+@include mq {
+  .block__title {
+    @include fluid-sp-range(font-size, $sp-min-px, $sp-max-px);
+  }
+}
+
+// ✅ PC 帯でも 769→コンテナ最大でサイズが変わる大見出し（工程⑤）
+.block__hero-title {
+  font-size: rem($comp-px);
+}
+@include mq-hero-pc {
+  .block__hero-title {
+    @include fluid-pc-range(font-size, $pc-min-px, $comp-px);
+  }
+}
+
+// ✅ 本文・UI
+.contact-field__label {
+  font-size: rem(14);
+}
+```
+
+## ブロック間の縦方向（`margin-top` のみ）
+
+- 後続要素側の **`margin-top`**。正の **`margin-bottom` で間を開けない**。
+- リセットは **`margin: 0`** + 必要なら **`margin-top`**
+- セクション外周の上下は **`padding`**（`.section` 等）で取る
+
+## テキストを包む UI の内側余白は `em`
+
+- ボタン・バッジ・チップ等、**文字サイズ × 箱**のパーツは **`padding` を `em`**
+- レイアウト用のセクション外周・カード外枠は **fluid パターンルール**（`em` ではない）
+
+## 見出し階層
+
+- 親より子の `font-size` が大きく見えないよう、子も必要なら **`fluid-pc-range`** で下限を抑える
+
+## やらないこと
+
+- すべてのテキストを `clamp` / `vw` にしない
+- ボタン・入力ラベルを無意味に `vw` だけで動かさない
+
+## 実装メモ
+
+- Sass がソース。`src/public/assets/css/*.css` は手編集しない。`npm run build`
