@@ -1,0 +1,164 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+// ----- GALLERY 一覧（Figma node 1:452） -----
+
+.gallery-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.gallery-grid__inner {
+  // .container padding-inline をそのまま使う（1420px 本文幅 @1920）
+}
+
+.gallery-grid__items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: rem(12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  // 1024〜1439: 4列 / 560〜1023: 3列 / 〜559: 2列（1440〜: 5列）
+  @media (max-width: 1439px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq {
+    @include fluid-sp-range(gap, 8, 12);
+  }
+
+  @media (max-width: 559px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gallery-grid__item {
+  min-width: 0;
+}
+
+.gallery-grid__link {
+  display: block;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 2px;
+  }
+}
+
+.gallery-grid__figure {
+  aspect-ratio: 274.391 / 391.984;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// ----- GALLERY 詳細（WALL TEXTURE / Figma node 1:2） -----
+
+.gallery-detail {
+  padding-top: rem(200);
+  box-sizing: border-box;
+
+  @include mq {
+    @include fluid-sp-range(padding-top, 120, 200);
+  }
+}
+
+.gallery-detail__inner {
+  width: 100%;
+  max-width: rem(900);
+  margin-inline: auto;
+  padding-inline: rem(80);
+  box-sizing: border-box;
+
+  @include mq {
+    @include fluid-sp-range(padding-inline, 20, 40);
+  }
+}
+
+.gallery-detail__title {
+  margin: 0;
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: rem(15);
+  line-height: rem(22.5);
+  color: var(--color-text);
+}
+
+.gallery-detail__stack {
+  display: flex;
+  flex-direction: column;
+  gap: rem(22);
+  margin-top: rem(50);
+
+  @include mq {
+    @include fluid-sp-range(margin-top, 32, 50);
+    @include fluid-sp-range(gap, 16, 22);
+  }
+}
+
+.gallery-detail__figure {
+  aspect-ratio: 740 / 1057.141;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.gallery-detail__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(160);
+
+  @include mq {
+    @include fluid-sp-range(margin-top, 80, 160);
+  }
+}
+
+.gallery-detail__back {
+  gap: rem(8);
+  min-width: 0;
+  height: auto;
+  padding: rem(12) rem(24) rem(12) rem(12);
+  letter-spacing: rem(1.3);
+  line-height: rem(15.6);
+
+  @include mq {
+    min-width: 0;
+    height: auto;
+    padding: rem(10) rem(20) rem(10) rem(10);
+    font-size: rem(11);
+    letter-spacing: rem(1.1);
+  }
+}
+
+.gallery-detail__back-icon {
+  flex: 0 0 rem(24);
+  width: rem(24);
+  height: rem(24);
+}

@@ -1,0 +1,30 @@
+{
+  "source": "get_design_context",
+  "nodeId": "1:452",
+  "fetchedAt": "2026-08-31T00:14:00+09:00",
+  "page": "gallery",
+  "frameName": "FOCUS LITE",
+  "frameSize": { "width": 1920, "height": 2268 },
+  "grid": {
+    "columns": 5,
+    "gapPx": 12,
+    "itemWidthPx": 274.391,
+    "itemHeightPx": 391.984,
+    "contentWidthPx": 1420,
+    "rows": [5, 5, 2]
+  },
+  "images": [
+    { "index": 1, "label": "WALL TEXTURE", "path": "src/public/assets/img/gallery/gallery_01.png" },
+    { "index": 2, "label": "EMPTY STREET", "path": "src/public/assets/img/gallery/gallery_02.png" },
+    { "index": 3, "label": "TUNNEL LIGHT", "path": "src/public/assets/img/gallery/gallery_03.png" },
+    { "index": 4, "label": "MIDNIGHT RIDER", "path": "src/public/assets/img/gallery/gallery_04.png" },
+    { "index": 5, "label": "BACKSTREET", "path": "src/public/assets/img/gallery/gallery_05.png" },
+    { "index": 6, "label": "REFLECTION", "path": "src/public/assets/img/gallery/gallery_06.png" },
+    { "index": 7, "label": "ROOFTOP", "path": "src/public/assets/img/gallery/gallery_07.png" },
+    { "index": 8, "label": "SUBWAY", "path": "src/public/assets/img/gallery/gallery_08.png" },
+    { "index": 9, "label": "CROSSWALK", "path": "src/public/assets/img/gallery/gallery_09.png" },
+    { "index": 10, "label": "NEON RAIN", "path": "src/public/assets/img/gallery/gallery_10.png" },
+    { "index": 11, "label": "UNDERPASS", "path": "src/public/assets/img/gallery/gallery_11.png" },
+    { "index": 12, "label": "SHINJUKU", "path": "src/public/assets/img/gallery/gallery_12.png" }
+  ]
+}

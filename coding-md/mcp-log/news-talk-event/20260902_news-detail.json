@@ -1,0 +1,30 @@
+{
+  "source": "get_design_context",
+  "nodeId": "5:2",
+  "fetchedAt": "2026-09-02T00:00:00+09:00",
+  "page": "news-talk-event",
+  "section": "news-detail",
+  "frameName": "NEWS - トークイベント出演のお知らせ",
+  "dimensions": { "width": 1920, "height": 1181 },
+  "typography": {
+    "title": { "fontSize": 20, "lineHeight": 30, "fontWeight": 700 },
+    "date": { "fontSize": 15, "lineHeight": 22.5, "fontWeight": 400 },
+    "body": { "fontSize": 13, "lineHeight": 20.8, "fontWeight": 400 },
+    "backLink": { "fontSize": 13, "lineHeight": 15.6, "letterSpacing": 1.3, "fontWeight": 500 }
+  },
+  "layout": {
+    "paddingTop": 200,
+    "contentMaxWidth": 900,
+    "paddingInline": 80,
+    "contentWidth": 740,
+    "titleToDateGap": 8,
+    "dateToBodyGap": 22,
+    "backButtonMarginTop": 160
+  },
+  "content": {
+    "title": "トークイベント出演のお知らせ",
+    "date": "2025.09.01",
+    "body": "2025年11月、東京で開催されるフォトカルチャーイベントに登壇します。ストリートフォトについてお話しします。"
+  },
+  "images": []
+}

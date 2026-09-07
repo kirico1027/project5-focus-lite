@@ -1,0 +1,19 @@
+{
+  "source": "screenshot.cjs + get_screenshot",
+  "fetchedAt": "2026-08-29T01:57:28+09:00",
+  "page": "works-street-cipher",
+  "figmaNodeId": "1:585",
+  "figmaFrameName": "WORKS - STREET CIPHER DOCUMENTARY",
+  "implementation": {
+    "url": "http://127.0.0.1:8080/works-street-cipher.html",
+    "files": [
+      "coding-md/screenshots/works-street-cipher_fullpage_sp_20260829_015728.png",
+      "coding-md/screenshots/works-street-cipher_fullpage_pc_20260829_015728.png"
+    ]
+  },
+  "viewports": {
+    "sp": { "width": 375, "height": 812 },
+    "pc": { "width": 1920, "height": 1080 }
+  },
+  "note": "Figma 参照スクリーンショットは node 1:585。視覚差分の自動修正は未実施（初回実装後の目視確認待ち）。"
+}

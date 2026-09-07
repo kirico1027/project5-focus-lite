@@ -2,7 +2,7 @@
 <header class="top-header" id="top-header">
   <div class="top-header__inner">
     <nav class="top-header__nav" aria-label="メインナビゲーション（左）">
-      <a class="top-header__link" href="#" data-nav="profile">PROFILE</a>
+      <a class="top-header__link" href="#" data-profile-open data-nav="profile">PROFILE</a>
       <a class="top-header__link" href="./works.html" data-nav="works">WORKS</a>
       <a class="top-header__link" href="./gallery.html" data-nav="gallery">GALLERY</a>
     </nav>
@@ -29,9 +29,8 @@
   <div class="top-header__drawer" id="top-header-drawer" hidden>
     <div class="top-header__drawer-backdrop" data-drawer-close></div>
     <div class="top-header__drawer-panel" role="dialog" aria-modal="true" aria-label="メニュー">
-      <button type="button" class="top-header__drawer-close" data-drawer-close>CLOSE</button>
       <nav class="top-header__drawer-nav" aria-label="ドロワーナビゲーション">
-        <a class="top-header__drawer-link" href="#" data-nav="profile">PROFILE</a>
+        <a class="top-header__drawer-link" href="#" data-profile-open data-nav="profile">PROFILE</a>
         <a class="top-header__drawer-link" href="./works.html" data-nav="works">WORKS</a>
         <a class="top-header__drawer-link" href="./gallery.html" data-nav="gallery">GALLERY</a>
         <a class="top-header__drawer-link" href="./contact.html" data-nav="contact">CONTACT</a>
@@ -39,3 +38,4 @@
     </div>
   </div>
 </header>
+@@include('partials/profile-panel.html')

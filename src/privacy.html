@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script>
+      document.documentElement.classList.add("js");
+
+      (function () {
+        var mobileQuery = "(max-width: 768px)";
+
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "manual";
+        }
+
+        function snapMobileBelowTop() {
+          if (!window.matchMedia(mobileQuery).matches) return;
+          if (window.scrollY < 1) {
+            window.scrollTo(0, 1);
+          }
+        }
+
+        snapMobileBelowTop();
+        document.addEventListener("DOMContentLoaded", snapMobileBelowTop);
+        window.addEventListener("pageshow", snapMobileBelowTop);
+        window.addEventListener("load", snapMobileBelowTop);
+
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener("resize", snapMobileBelowTop);
+        }
+      })();
+    </script>
+    <title>PRIVACY POLICY | TAKAHIRO KOBAYASHI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    />
+    <link rel="stylesheet" href="./public/assets/css/main.css?v=75" />
+
+  </head>
+  <body id="top">
+    <!-- WP: page-privacy.php / PRIVACY POLICY -->
+    <!-- WP: header / 全ページ共通 -->
+<header class="top-header" id="top-header">
+  <div class="top-header__inner">
+    <nav class="top-header__nav" aria-label="メインナビゲーション（左）">
+      <a class="top-header__link" href="#" data-profile-open data-nav="profile">PROFILE</a>
+      <a class="top-header__link" href="./works.html" data-nav="works">WORKS</a>
+      <a class="top-header__link" href="./gallery.html" data-nav="gallery">GALLERY</a>
+    </nav>
+    <a class="top-header__logo" href="./index.html">
+      <span class="top-header__logo-line">TAKAHIRO</span>
+      <span class="top-header__logo-line">KOBAYASHI</span>
+    </a>
+    <nav class="top-header__nav top-header__nav--end" aria-label="メインナビゲーション（右）">
+      <a class="top-header__link" href="./contact.html" data-nav="contact">CONTACT</a>
+    </nav>
+    <button
+      type="button"
+      class="top-header__menu-toggle"
+      id="top-header-menu-toggle"
+      aria-controls="top-header-drawer"
+      aria-expanded="false"
+      aria-label="メニューを開く"
+    >
+      <span class="top-header__menu-toggle-bar"></span>
+      <span class="top-header__menu-toggle-bar"></span>
+      <span class="top-header__menu-toggle-bar"></span>
+    </button>
+  </div>
+  <div class="top-header__drawer" id="top-header-drawer" hidden>
+    <div class="top-header__drawer-backdrop" data-drawer-close></div>
+    <div class="top-header__drawer-panel" role="dialog" aria-modal="true" aria-label="メニュー">
+      <nav class="top-header__drawer-nav" aria-label="ドロワーナビゲーション">
+        <a class="top-header__drawer-link" href="#" data-profile-open data-nav="profile">PROFILE</a>
+        <a class="top-header__drawer-link" href="./works.html" data-nav="works">WORKS</a>
+        <a class="top-header__drawer-link" href="./gallery.html" data-nav="gallery">GALLERY</a>
+        <a class="top-header__drawer-link" href="./contact.html" data-nav="contact">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- WP: profile-panel / 全ページ共通スライドインパネル -->
+<div class="profile-panel" id="profile-panel" hidden>
+  <div class="profile-panel__backdrop" aria-hidden="true"></div>
+  <div class="profile-panel__wrap">
+    <div
+      class="profile-panel__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="profile-panel-heading"
+    >
+      <button type="button" class="profile-panel__close" data-profile-close aria-label="プロフィールを閉じる">
+        <svg class="profile-panel__close-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M7 7l10 10M17 7 7 17" />
+        </svg>
+      </button>
+
+      <div class="profile-panel__scroll">
+        <h2 class="profile-panel__heading" id="profile-panel-heading">PROFILE</h2>
+
+        <p class="profile-panel__role">PHOTOGRAPHER</p>
+        <p class="profile-panel__name">TAKAHIRO KOBAYASHI</p>
+
+        <ul class="profile-panel__sns">
+          <li class="profile-panel__sns-item">
+            <a class="profile-panel__sns-link" href="#" target="_blank" rel="noopener noreferrer">X</a>
+          </li>
+          <li class="profile-panel__sns-item">
+            <a class="profile-panel__sns-link" href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </li>
+          <li class="profile-panel__sns-item">
+            <a class="profile-panel__sns-link" href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </li>
+        </ul>
+
+        <div class="profile-panel__lead">
+          <p class="profile-panel__text profile-panel__text--lead">
+            Takahiro Kobayashi is a street-inspired photographer who captures the hidden rhythm of the city.
+          </p>
+          <p class="profile-panel__text profile-panel__text--lead">
+            Through his lens, everyday streets transform into frames filled with light, shadow, chaos, and calm. His work seeks more than scenery — it preserves the raw pulse of urban life, revealing fleeting moments that speak beyond words.
+          </p>
+        </div>
+
+        <div class="profile-panel__lead profile-panel__lead--ja">
+          <p class="profile-panel__text profile-panel__text--lead">
+            小林隆宏は、ストリートに息づく鼓動を切り取るフォトグラファー。
+          </p>
+          <p class="profile-panel__text profile-panel__text--lead">
+            レンズを通して、日常の街並みを光と影、混沌と静寂が交差する一枚へと昇華させる。彼が捉えるのは風景ではなく、都市の生々しい鼓動であり、言葉を超えて心に響く瞬間である。
+          </p>
+        </div>
+
+        <div class="profile-panel__sections">
+          <section class="profile-panel__section" aria-labelledby="profile-about-heading">
+            <h3 class="profile-panel__section-heading" id="profile-about-heading">ABOUT</h3>
+            <div class="profile-panel__section-body">
+              <p class="profile-panel__text">1999年 札幌生まれ、東京在住。</p>
+              <p class="profile-panel__text">独学で写真を学び、都市の空気感やストリートに流れるリズムをテーマに撮影を続けている。</p>
+              <p class="profile-panel__text">日常に潜む光と影を捉え、都市の鼓動を一枚に刻む作品を制作。</p>
+            </div>
+          </section>
+
+          <section class="profile-panel__section" aria-labelledby="profile-bio-heading">
+            <h3 class="profile-panel__section-heading" id="profile-bio-heading">BIOGRAPHY</h3>
+            <div class="profile-panel__section-body">
+              <p class="profile-panel__text">1983年 札幌生まれ、福岡在住。</p>
+              <p class="profile-panel__text">独学で写真を学び、都市の空気感やストリートに流れるリズムをテーマに撮影を続けている。</p>
+              <p class="profile-panel__text">日常に潜む光と影を捉え、都市の鼓動を一枚に刻む作品を制作。</p>
+            </div>
+          </section>
+
+          <section class="profile-panel__section profile-panel__section--last" aria-labelledby="profile-exhibitions-heading">
+            <h3 class="profile-panel__section-heading" id="profile-exhibitions-heading">EXHIBITIONS / PUBLICATIONS</h3>
+            <div class="profile-panel__section-body">
+              <p class="profile-panel__text">- 2022年 福岡アートギャラリー「CITY VIBES」個展</p>
+              <p class="profile-panel__text">- 2023年 ストリートフォトコンテスト入選</p>
+              <p class="profile-panel__text">- 2024年 雑誌「PHOTO LIFE」に作品掲載</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <main class="privacy-page">
+      <section class="page-hero" aria-labelledby="privacy-hero-heading">
+        <div class="page-hero__inner container">
+          <h1 id="privacy-hero-heading" class="page-hero__title privacy-page__hero-title">
+            <span class="privacy-page__hero-line">PRIVACY</span>
+            <span class="privacy-page__hero-line">POLICY</span>
+          </h1>
+        </div>
+      </section>
+
+      <article class="privacy-policy" aria-labelledby="privacy-hero-heading">
+        <div class="privacy-policy__inner">
+          <p class="privacy-policy__text">
+            当社は、お客様の個人情報を適切に取り扱い、保護することが重要であると認識しております。本プライバシーポリシーは、当社がお客様から取得した個人情報の収集、使用、保護に関する方針を明示しています。お客様は、本プライバシーポリシーに同意することで、当社がお客様の個人情報を取り扱う方法について同意するものとします。
+          </p>
+
+          <section class="privacy-policy__section" aria-labelledby="privacy-sec-1">
+            <h2 class="privacy-policy__heading" id="privacy-sec-1">1. 収集される個人情報</h2>
+            <p class="privacy-policy__text">
+              当社は、お客さまの個人情報を正確かつ最新の状態に保ち、個人情報への不正アクセス・紛失・破損・改ざん・漏洩などを防止するため、セキュリティシステムの維持・管理体制の整備・社員教育の徹底等の必要な措置を講じ、安全対策を実施し個人情報の厳重な管理を行ないます。
+            </p>
+            <ul class="privacy-policy__list">
+              <li class="privacy-policy__list-item">お名前、連絡先情報（電話番号、メールアドレスなど）</li>
+              <li class="privacy-policy__list-item">会社名、役職、所属部署などの職業関連情報</li>
+              <li class="privacy-policy__list-item">ウェブサイトの利用履歴、Cookie、IPアドレスなどのオンライン情報</li>
+            </ul>
+          </section>
+
+          <section class="privacy-policy__section" aria-labelledby="privacy-sec-2">
+            <h2 class="privacy-policy__heading" id="privacy-sec-2">2. 個人情報の利用目的</h2>
+            <p class="privacy-policy__text">
+              お客さまからお預かりした個人情報は、当社からのご連絡や業務のご案内やご質問に対する回答として、電子メールや資料のご送付に利用いたします。
+            </p>
+            <ul class="privacy-policy__list">
+              <li class="privacy-policy__list-item">お問い合わせや要望への対応</li>
+              <li class="privacy-policy__list-item">サービスの提供や契約の履行</li>
+              <li class="privacy-policy__list-item">ニュースレターやプロモーション情報の提供</li>
+              <li class="privacy-policy__list-item">ウェブサイトの改善やカスタマイズ</li>
+              <li class="privacy-policy__list-item">法的要件や規制の遵守</li>
+            </ul>
+          </section>
+
+          <section class="privacy-policy__section" aria-labelledby="privacy-sec-3">
+            <h2 class="privacy-policy__heading" id="privacy-sec-3">3. 個人情報の第三者への提供</h2>
+            <p class="privacy-policy__text">
+              当社は、お客様の個人情報を第三者に提供することはありません（法的要件や規制に基づく場合を除く）。
+            </p>
+          </section>
+
+          <section class="privacy-policy__section" aria-labelledby="privacy-sec-4">
+            <h2 class="privacy-policy__heading" id="privacy-sec-4">4. 個人情報の保護とセキュリティ</h2>
+            <p class="privacy-policy__text">
+              当社は、適切なセキュリティ対策を実施し、お客様の個人情報を保護するために合理的な措置を講じます。
+            </p>
+          </section>
+
+          <section class="privacy-policy__section" aria-labelledby="privacy-sec-5">
+            <h2 class="privacy-policy__heading" id="privacy-sec-5">5. Cookieの使用</h2>
+            <p class="privacy-policy__text">
+              当社のウェブサイトでは、Cookieを使用する場合があります。Cookieは、ウェブサイトがお客様のブラウザに送信する小さなテキストファイルであり、お客様のコンピュータに一時的に保存されます。Cookieは、ウェブサイトの機能やパーソナライズされた体験を提供するために使用されます。
+            </p>
+            <p class="privacy-policy__text privacy-policy__text--spaced">
+              当社のウェブサイトでは、以下の目的でCookieを使用することがあります。
+            </p>
+            <ul class="privacy-policy__list">
+              <li class="privacy-policy__list-item">ウェブサイトのトラフィック解析や利用状況の測定</li>
+              <li class="privacy-policy__list-item">ウェブサイトのカスタマイズやパーソナライズ</li>
+              <li class="privacy-policy__list-item">オンライン広告の配信や効果測定</li>
+            </ul>
+            <p class="privacy-policy__text privacy-policy__text--spaced">
+              お客様は、ブラウザの設定を変更することで、Cookieの受け入れを拒否することができます。ただし、Cookieを無効にすると、ウェブサイトの一部の機能が制限される可能性があります。
+            </p>
+          </section>
+
+          <section class="privacy-policy__section" aria-labelledby="privacy-sec-6">
+            <h2 class="privacy-policy__heading" id="privacy-sec-6">6. 個人情報の保持期間</h2>
+            <p class="privacy-policy__text">
+              当社は、お客様の個人情報を必要な期間だけ保管し、利用目的を達成するために必要な範囲で保持します。個人情報が不要となった場合には、適切に破棄または匿名化します。
+            </p>
+          </section>
+
+          <section class="privacy-policy__section" aria-labelledby="privacy-sec-7">
+            <h2 class="privacy-policy__heading" id="privacy-sec-7">7. プライバシーポリシーの変更</h2>
+            <p class="privacy-policy__text">
+              当社は、必要に応じて本プライバシーポリシーを変更することがあります。変更が行われた場合には、ウェブサイト上で通知いたします。本プライバシーポリシーの最新版は常に当社のウェブサイト上でご確認いただけます。
+            </p>
+          </section>
+
+          <section class="privacy-policy__section privacy-policy__section--last" aria-labelledby="privacy-sec-8">
+            <h2 class="privacy-policy__heading" id="privacy-sec-8">8. お問い合わせ</h2>
+            <div class="privacy-policy__text privacy-policy__contact">
+              <p>ご不明な点や個人情報に関するお問い合わせがある場合は、以下の連絡先までお気軽にご連絡ください。</p>
+              <p class="privacy-policy__contact-blank" aria-hidden="true">&nbsp;</p>
+              <p>株式会社○○</p>
+              <p>〒000-0000東京都港区○○ 1-2-3</p>
+              <p>TEL : 00-0000-0000</p>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <!-- WP: footer / 全ページ共通 -->
+<footer class="site-footer" id="site-footer">
+  <a class="site-footer__pagetop" href="#top" data-pagetop>
+    <svg class="site-footer__pagetop-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+    </svg>
+    <span>PAGETOP</span>
+  </a>
+  <div class="site-footer__brand" aria-hidden="true">
+    <p class="site-footer__brand-text">TAKAHIRO KOBAYASHI</p>
+  </div>
+  <div class="site-footer__rule" aria-hidden="true"></div>
+  <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+    <a class="site-footer__link" href="#" data-profile-open data-nav="profile">PROFILE</a>
+    <a class="site-footer__link" href="./gallery.html" data-nav="gallery">GALLERY</a>
+    <a class="site-footer__link" href="./works.html" data-nav="works">WORKS</a>
+    <a class="site-footer__link" href="./contact.html" data-nav="contact">CONTACT</a>
+  </nav>
+  <p class="site-footer__copy">© TAKAHIRO KOBAYASHI</p>
+</footer>
+
+    <script src="./public/assets/js/script.js?v=9"></script>
+  </body>
+</html>

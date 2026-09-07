@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    @@include('partials/head.html', { "title": "トークイベント出演のお知らせ | NEWS | TAKAHIRO KOBAYASHI" })
+  </head>
+  <body id="top">
+    <!-- WP: single-news.php / NEWS 詳細 トークイベント出演のお知らせ -->
+    @@include('partials/header.html')
+
+    <main class="news-page news-page--detail">
+      <article class="news-detail" aria-labelledby="news-detail-heading">
+        <div class="news-detail__inner">
+          <header class="news-detail__header">
+            <h1 class="news-detail__title" id="news-detail-heading">トークイベント出演のお知らせ</h1>
+            <time class="news-detail__date" datetime="2025-09-01">2025.09.01</time>
+          </header>
+
+          <div class="news-detail__body">
+            <p class="news-detail__text">
+              2025年11月、東京で開催されるフォトカルチャーイベントに登壇します。ストリートフォトについてお話しします。
+            </p>
+          </div>
+
+          <div class="news-detail__actions">
+            <a class="news-detail__back btn btn--ghost" href="./index.html" data-nav="news-back">
+              <svg class="news-detail__back-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+              </svg>
+              <span>BACK TO LIST</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    @@include('partials/footer.html')
+    <script src="./public/assets/js/script.js?v=9"></script>
+  </body>
+</html>

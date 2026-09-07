@@ -1,0 +1,14 @@
+{
+  "source": "get_design_context",
+  "nodeId": "1:585",
+  "fetchedAt": "2026-08-29T01:50:00+09:00",
+  "page": "works-street-cipher",
+  "section": "full-page",
+  "frameName": "WORKS - STREET CIPHER DOCUMENTARY",
+  "frameSize": { "width": 1920, "height": 8152 },
+  "implementation": {
+    "template": "src/templates/works-street-cipher.html",
+    "output": "src/works-street-cipher.html",
+    "scss": "src/sass/pages/works/_works.scss"
+  }
+}

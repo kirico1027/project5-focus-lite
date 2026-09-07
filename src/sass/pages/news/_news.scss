@@ -1,0 +1,152 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+// ----- NEWS 詳細（トークイベント出演のお知らせ / Figma node 5:2） -----
+
+.news-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.news-detail {
+  padding-top: rem(200);
+  box-sizing: border-box;
+
+  @include mq {
+    @include fluid-sp-range(padding-top, 120, 200);
+  }
+}
+
+.news-detail__inner {
+  width: 100%;
+  max-width: rem(900);
+  margin-inline: auto;
+  padding-inline: rem(80);
+  box-sizing: border-box;
+
+  @include mq {
+    @include fluid-sp-range(padding-inline, 20, 40);
+  }
+}
+
+.news-detail__header {
+  min-width: 0;
+}
+
+.news-detail__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: rem(20);
+  line-height: rem(30);
+  color: var(--color-text);
+
+  @include mq {
+    @include fluid-sp-range(font-size, 16, 20);
+    @include fluid-sp-range(line-height, 24, 30);
+  }
+}
+
+.news-detail__date {
+  display: block;
+  margin: 0;
+  margin-top: rem(8);
+  font-family: var(--font-en);
+  font-weight: 400;
+  font-size: rem(15);
+  line-height: rem(22.5);
+  color: var(--color-text);
+
+  @include mq {
+    @include fluid-sp-range(margin-top, 6, 8);
+    @include fluid-sp-range(font-size, 13, 15);
+    @include fluid-sp-range(line-height, 19.5, 22.5);
+  }
+}
+
+.news-detail__body {
+  margin-top: rem(22);
+  min-width: 0;
+
+  @include mq {
+    @include fluid-sp-range(margin-top, 16, 22);
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+}
+
+.news-detail__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: rem(13);
+  line-height: rem(20.8);
+  color: var(--color-text);
+
+  @include mq {
+    @include fluid-sp-range(font-size, 12, 13);
+    @include fluid-sp-range(line-height, 19.2, 20.8);
+  }
+}
+
+.news-detail__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: rem(160);
+
+  @include mq {
+    flex-shrink: 0;
+    margin-top: rem(40);
+  }
+}
+
+// SP: 本文が短いとき BACK TO LIST + Footer を画面下寄せ（通常フロー・flex）
+@include mq {
+  body:has(.news-page--detail) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+  }
+
+  body:has(.news-page--detail) .news-page--detail {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    width: 100%;
+  }
+
+  body:has(.news-page--detail) .news-detail {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  body:has(.news-page--detail) .news-detail__inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+}
+
+.news-detail__back {
+  gap: rem(8);
+  min-width: 0;
+  height: auto;
+  padding: rem(12) rem(24) rem(12) rem(12);
+  letter-spacing: rem(1.3);
+  line-height: rem(15.6);
+
+  @include mq {
+    min-width: 0;
+    height: auto;
+    padding: rem(10) rem(20) rem(10) rem(10);
+    font-size: rem(11);
+    letter-spacing: rem(1.1);
+  }
+}
+
+.news-detail__back-icon {
+  flex: 0 0 rem(24);
+  width: rem(24);
+  height: rem(24);
+}

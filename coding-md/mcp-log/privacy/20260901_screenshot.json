@@ -1,0 +1,19 @@
+{
+  "source": "screenshot.cjs",
+  "fetchedAt": "2026-09-01T01:20:00+09:00",
+  "page": "privacy",
+  "figmaNodeId": "1:2",
+  "figmaFrameName": "FOCUS LITE (PRIVACY POLICY)",
+  "implementation": {
+    "url": "http://127.0.0.1:8080/privacy.html",
+    "files": [
+      "coding-md/screenshots/privacy_fullpage_fullpage_sp_20260901_012000.png",
+      "coding-md/screenshots/privacy_fullpage_fullpage_pc_20260901_012000.png"
+    ]
+  },
+  "viewports": {
+    "sp": { "width": 375, "height": 812 },
+    "pc": { "width": 1920, "height": 1080 }
+  },
+  "note": "初回実装後の目視ピクセル調整は未実施。"
+}

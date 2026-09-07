@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    @@include('partials/head.html', { "title": "GALLERY | TAKAHIRO KOBAYASHI" })
+  </head>
+  <body>
+    <!-- WP: archive-gallery.php / GALLERY 一覧 -->
+    @@include('partials/header.html')
+
+    <main class="gallery-page">
+      @@include('partials/page-hero.html', {
+        "heroModifier": "",
+        "heroHeadingId": "gallery-hero-heading",
+        "heroTitleEn": "GALLERY"
+      })
+
+      <section class="gallery-grid" aria-label="ギャラリー一覧">
+        <div class="gallery-grid__inner container">
+          <ul class="gallery-grid__items">
+            @@include('partials/cards/gallery-item.html', {
+              "href": "./gallery-wall-texture.html",
+              "imgSrc": "./public/assets/img/gallery/gallery_01.png",
+              "title": "WALL TEXTURE"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_02.png",
+              "title": "EMPTY STREET"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_03.png",
+              "title": "TUNNEL LIGHT"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_04.png",
+              "title": "MIDNIGHT RIDER"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_05.png",
+              "title": "BACKSTREET"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_06.png",
+              "title": "REFLECTION"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_07.png",
+              "title": "ROOFTOP"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_08.png",
+              "title": "SUBWAY"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_09.png",
+              "title": "CROSSWALK"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_10.png",
+              "title": "NEON RAIN"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_11.png",
+              "title": "UNDERPASS"
+            })
+            @@include('partials/cards/gallery-item.html', {
+              "href": "#",
+              "imgSrc": "./public/assets/img/gallery/gallery_12.png",
+              "title": "SHINJUKU"
+            })
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    @@include('partials/footer.html')
+    <script src="./public/assets/js/script.js?v=9"></script>
+  </body>
+</html>

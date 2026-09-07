@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <script>
+      document.documentElement.classList.add("js");
+
+      (function () {
+        var mobileQuery = "(max-width: 768px)";
+
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "manual";
+        }
+
+        function snapMobileBelowTop() {
+          if (!window.matchMedia(mobileQuery).matches) return;
+          if (window.scrollY < 1) {
+            window.scrollTo(0, 1);
+          }
+        }
+
+        snapMobileBelowTop();
+        document.addEventListener("DOMContentLoaded", snapMobileBelowTop);
+        window.addEventListener("pageshow", snapMobileBelowTop);
+        window.addEventListener("load", snapMobileBelowTop);
+
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener("resize", snapMobileBelowTop);
+        }
+      })();
+    </script>
+    <title>WALL TEXTURE | GALLERY | TAKAHIRO KOBAYASHI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+    />
+    <link rel="stylesheet" href="./public/assets/css/main.css?v=75" />
+
+  </head>
+  <body id="top">
+    <!-- WP: single-gallery.php / GALLERY 詳細 WALL TEXTURE -->
+    <!-- WP: header / 全ページ共通 -->
+<header class="top-header" id="top-header">
+  <div class="top-header__inner">
+    <nav class="top-header__nav" aria-label="メインナビゲーション（左）">
+      <a class="top-header__link" href="#" data-profile-open data-nav="profile">PROFILE</a>
+      <a class="top-header__link" href="./works.html" data-nav="works">WORKS</a>
+      <a class="top-header__link" href="./gallery.html" data-nav="gallery">GALLERY</a>
+    </nav>
+    <a class="top-header__logo" href="./index.html">
+      <span class="top-header__logo-line">TAKAHIRO</span>
+      <span class="top-header__logo-line">KOBAYASHI</span>
+    </a>
+    <nav class="top-header__nav top-header__nav--end" aria-label="メインナビゲーション（右）">
+      <a class="top-header__link" href="./contact.html" data-nav="contact">CONTACT</a>
+    </nav>
+    <button
+      type="button"
+      class="top-header__menu-toggle"
+      id="top-header-menu-toggle"
+      aria-controls="top-header-drawer"
+      aria-expanded="false"
+      aria-label="メニューを開く"
+    >
+      <span class="top-header__menu-toggle-bar"></span>
+      <span class="top-header__menu-toggle-bar"></span>
+      <span class="top-header__menu-toggle-bar"></span>
+    </button>
+  </div>
+  <div class="top-header__drawer" id="top-header-drawer" hidden>
+    <div class="top-header__drawer-backdrop" data-drawer-close></div>
+    <div class="top-header__drawer-panel" role="dialog" aria-modal="true" aria-label="メニュー">
+      <nav class="top-header__drawer-nav" aria-label="ドロワーナビゲーション">
+        <a class="top-header__drawer-link" href="#" data-profile-open data-nav="profile">PROFILE</a>
+        <a class="top-header__drawer-link" href="./works.html" data-nav="works">WORKS</a>
+        <a class="top-header__drawer-link" href="./gallery.html" data-nav="gallery">GALLERY</a>
+        <a class="top-header__drawer-link" href="./contact.html" data-nav="contact">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- WP: profile-panel / 全ページ共通スライドインパネル -->
+<div class="profile-panel" id="profile-panel" hidden>
+  <div class="profile-panel__backdrop" aria-hidden="true"></div>
+  <div class="profile-panel__wrap">
+    <div
+      class="profile-panel__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="profile-panel-heading"
+    >
+      <button type="button" class="profile-panel__close" data-profile-close aria-label="プロフィールを閉じる">
+        <svg class="profile-panel__close-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M7 7l10 10M17 7 7 17" />
+        </svg>
+      </button>
+
+      <div class="profile-panel__scroll">
+        <h2 class="profile-panel__heading" id="profile-panel-heading">PROFILE</h2>
+
+        <p class="profile-panel__role">PHOTOGRAPHER</p>
+        <p class="profile-panel__name">TAKAHIRO KOBAYASHI</p>
+
+        <ul class="profile-panel__sns">
+          <li class="profile-panel__sns-item">
+            <a class="profile-panel__sns-link" href="#" target="_blank" rel="noopener noreferrer">X</a>
+          </li>
+          <li class="profile-panel__sns-item">
+            <a class="profile-panel__sns-link" href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </li>
+          <li class="profile-panel__sns-item">
+            <a class="profile-panel__sns-link" href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </li>
+        </ul>
+
+        <div class="profile-panel__lead">
+          <p class="profile-panel__text profile-panel__text--lead">
+            Takahiro Kobayashi is a street-inspired photographer who captures the hidden rhythm of the city.
+          </p>
+          <p class="profile-panel__text profile-panel__text--lead">
+            Through his lens, everyday streets transform into frames filled with light, shadow, chaos, and calm. His work seeks more than scenery — it preserves the raw pulse of urban life, revealing fleeting moments that speak beyond words.
+          </p>
+        </div>
+
+        <div class="profile-panel__lead profile-panel__lead--ja">
+          <p class="profile-panel__text profile-panel__text--lead">
+            小林隆宏は、ストリートに息づく鼓動を切り取るフォトグラファー。
+          </p>
+          <p class="profile-panel__text profile-panel__text--lead">
+            レンズを通して、日常の街並みを光と影、混沌と静寂が交差する一枚へと昇華させる。彼が捉えるのは風景ではなく、都市の生々しい鼓動であり、言葉を超えて心に響く瞬間である。
+          </p>
+        </div>
+
+        <div class="profile-panel__sections">
+          <section class="profile-panel__section" aria-labelledby="profile-about-heading">
+            <h3 class="profile-panel__section-heading" id="profile-about-heading">ABOUT</h3>
+            <div class="profile-panel__section-body">
+              <p class="profile-panel__text">1999年 札幌生まれ、東京在住。</p>
+              <p class="profile-panel__text">独学で写真を学び、都市の空気感やストリートに流れるリズムをテーマに撮影を続けている。</p>
+              <p class="profile-panel__text">日常に潜む光と影を捉え、都市の鼓動を一枚に刻む作品を制作。</p>
+            </div>
+          </section>
+
+          <section class="profile-panel__section" aria-labelledby="profile-bio-heading">
+            <h3 class="profile-panel__section-heading" id="profile-bio-heading">BIOGRAPHY</h3>
+            <div class="profile-panel__section-body">
+              <p class="profile-panel__text">1983年 札幌生まれ、福岡在住。</p>
+              <p class="profile-panel__text">独学で写真を学び、都市の空気感やストリートに流れるリズムをテーマに撮影を続けている。</p>
+              <p class="profile-panel__text">日常に潜む光と影を捉え、都市の鼓動を一枚に刻む作品を制作。</p>
+            </div>
+          </section>
+
+          <section class="profile-panel__section profile-panel__section--last" aria-labelledby="profile-exhibitions-heading">
+            <h3 class="profile-panel__section-heading" id="profile-exhibitions-heading">EXHIBITIONS / PUBLICATIONS</h3>
+            <div class="profile-panel__section-body">
+              <p class="profile-panel__text">- 2022年 福岡アートギャラリー「CITY VIBES」個展</p>
+              <p class="profile-panel__text">- 2023年 ストリートフォトコンテスト入選</p>
+              <p class="profile-panel__text">- 2024年 雑誌「PHOTO LIFE」に作品掲載</p>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <main class="gallery-page gallery-page--detail">
+      <article class="gallery-detail" aria-labelledby="gallery-detail-heading">
+        <div class="gallery-detail__inner">
+          <h1 class="gallery-detail__title" id="gallery-detail-heading">WALL TEXTURE</h1>
+
+          <div class="gallery-detail__stack">
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_01.png"
+                alt=""
+                width="740"
+                height="1057"
+                decoding="async"
+              />
+            </figure>
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_02.png"
+                alt=""
+                width="740"
+                height="1057"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_03.png"
+                alt=""
+                width="740"
+                height="1057"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_04.png"
+                alt=""
+                width="740"
+                height="1057"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_05.png"
+                alt=""
+                width="740"
+                height="1057"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_06.png"
+                alt=""
+                width="740"
+                height="1057"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_07.png"
+                alt=""
+                width="740"
+                height="1057"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="gallery-detail__figure">
+              <img
+                src="./public/assets/img/gallery/wall-texture/detail_08.png"
+                alt=""
+                width="740"
+                height="1057"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <div class="gallery-detail__actions">
+            <a class="gallery-detail__back btn btn--ghost" href="./gallery.html" data-nav="gallery-back">
+              <svg class="gallery-detail__back-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+              </svg>
+              <span>BACK TO LIST</span>
+            </a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- WP: footer / 全ページ共通 -->
+<footer class="site-footer" id="site-footer">
+  <a class="site-footer__pagetop" href="#top" data-pagetop>
+    <svg class="site-footer__pagetop-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+    </svg>
+    <span>PAGETOP</span>
+  </a>
+  <div class="site-footer__brand" aria-hidden="true">
+    <p class="site-footer__brand-text">TAKAHIRO KOBAYASHI</p>
+  </div>
+  <div class="site-footer__rule" aria-hidden="true"></div>
+  <nav class="site-footer__nav" aria-label="フッターナビゲーション">
+    <a class="site-footer__link" href="#" data-profile-open data-nav="profile">PROFILE</a>
+    <a class="site-footer__link" href="./gallery.html" data-nav="gallery">GALLERY</a>
+    <a class="site-footer__link" href="./works.html" data-nav="works">WORKS</a>
+    <a class="site-footer__link" href="./contact.html" data-nav="contact">CONTACT</a>
+  </nav>
+  <p class="site-footer__copy">© TAKAHIRO KOBAYASHI</p>
+</footer>
+
+    <script src="./public/assets/js/script.js?v=9"></script>
+  </body>
+</html>

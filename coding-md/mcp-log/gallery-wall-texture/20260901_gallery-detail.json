@@ -1,0 +1,29 @@
+{
+  "source": "get_design_context",
+  "nodeId": "1:2",
+  "fetchedAt": "2026-09-01T00:54:00+09:00",
+  "page": "gallery-wall-texture",
+  "frameName": "GALLERY - WALL TEXTURE",
+  "frameSize": { "width": 1920, "height": 9784 },
+  "layout": {
+    "paddingTopPx": 200,
+    "columnMaxWidthPx": 900,
+    "paddingInlinePx": 80,
+    "imageWidthPx": 740,
+    "imageHeightPx": 1057.141,
+    "titleToStackGapPx": 50,
+    "imageGapPx": 22,
+    "backMarginTopPx": 160
+  },
+  "title": "WALL TEXTURE",
+  "images": [
+    "src/public/assets/img/gallery/wall-texture/detail_01.png",
+    "src/public/assets/img/gallery/wall-texture/detail_02.png",
+    "src/public/assets/img/gallery/wall-texture/detail_03.png",
+    "src/public/assets/img/gallery/wall-texture/detail_04.png",
+    "src/public/assets/img/gallery/wall-texture/detail_05.png",
+    "src/public/assets/img/gallery/wall-texture/detail_06.png",
+    "src/public/assets/img/gallery/wall-texture/detail_07.png",
+    "src/public/assets/img/gallery/wall-texture/detail_08.png"
+  ]
+}

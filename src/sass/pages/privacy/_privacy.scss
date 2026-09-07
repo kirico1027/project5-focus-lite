@@ -1,0 +1,113 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+// ----- PRIVACY POLICY（Figma node 1:2） -----
+
+.privacy-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.privacy-page__hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: normal;
+}
+
+.privacy-page__hero-line {
+  display: block;
+}
+
+.privacy-policy__inner {
+  width: 100%;
+  max-width: rem(900);
+  margin-inline: auto;
+  padding-inline: rem(80);
+  box-sizing: border-box;
+
+  @include mq {
+    @include fluid-sp-range(padding-inline, 20, 40);
+  }
+}
+
+.privacy-policy__heading {
+  margin: 0;
+  margin-top: rem(40);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: rem(18);
+  line-height: rem(25.2);
+  letter-spacing: rem(1.8);
+  color: var(--color-text);
+}
+
+.privacy-policy__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: rem(13);
+  line-height: rem(26);
+  letter-spacing: rem(1.3);
+  color: var(--color-text);
+}
+
+.privacy-policy__heading + .privacy-policy__text,
+.privacy-policy__heading + .privacy-policy__contact {
+  margin-top: rem(20);
+}
+
+.privacy-policy__text--spaced,
+.privacy-policy__list {
+  margin-top: rem(40);
+
+  @include mq {
+    margin-top: rem(28);
+  }
+}
+
+.privacy-policy__list {
+  margin: 0;
+  margin-top: rem(40);
+  padding: 0;
+  list-style: none;
+
+  @include mq {
+    margin-top: rem(28);
+  }
+}
+
+.privacy-policy__list-item {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: rem(13);
+  line-height: rem(26);
+  letter-spacing: rem(1.3);
+  color: var(--color-text);
+
+  &::before {
+    content: "・";
+  }
+}
+
+.privacy-policy__contact {
+  p {
+    margin: 0;
+    font: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+  }
+}
+
+.privacy-policy__contact-blank {
+  min-height: rem(26);
+}
+
+.privacy-policy__section--last {
+  padding-bottom: rem(40);
+
+  @include mq {
+    padding-bottom: rem(32);
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "source": "screenshot.cjs + get_screenshot",
+  "fetchedAt": "2026-09-01T00:17:21+09:00",
+  "page": "gallery",
+  "figmaNodeId": "1:452",
+  "figmaFrameName": "FOCUS LITE (GALLERY 一覧)",
+  "implementation": {
+    "url": "http://127.0.0.1:8080/gallery.html",
+    "files": [
+      "coding-md/screenshots/gallery_fullpage_fullpage_sp_20260901_001721.png",
+      "coding-md/screenshots/gallery_fullpage_fullpage_pc_20260901_001721.png"
+    ]
+  },
+  "viewports": {
+    "sp": { "width": 375, "height": 812 },
+    "pc": { "width": 1920, "height": 1080 }
+  },
+  "note": "Figma 参照 node 1:452。視覚差分の自動修正は未実施（初回実装後の目視確認待ち）。"
+}

@@ -1,0 +1,22 @@
+{
+  "source": "get_design_context",
+  "nodeId": "1:2",
+  "fetchedAt": "2026-09-01T01:16:00+09:00",
+  "page": "privacy",
+  "frameName": "FOCUS LITE",
+  "frameSize": { "width": 1920, "height": 2952 },
+  "contentWidthPx": 740,
+  "outerMaxWidthPx": 900,
+  "paddingInlinePx": 80,
+  "sections": [
+    "lead",
+    "1. 収集される個人情報",
+    "2. 個人情報の利用目的",
+    "3. 個人情報の第三者への提供",
+    "4. 個人情報の保護とセキュリティ",
+    "5. Cookieの使用",
+    "6. 個人情報の保持期間",
+    "7. プライバシーポリシーの変更",
+    "8. お問い合わせ"
+  ]
+}

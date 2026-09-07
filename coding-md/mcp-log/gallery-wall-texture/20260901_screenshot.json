@@ -1,0 +1,19 @@
+{
+  "source": "screenshot.cjs + get_screenshot",
+  "fetchedAt": "2026-09-01T00:55:55+09:00",
+  "page": "gallery-wall-texture",
+  "figmaNodeId": "1:2",
+  "figmaFrameName": "GALLERY - WALL TEXTURE",
+  "implementation": {
+    "url": "http://127.0.0.1:8080/gallery-wall-texture.html",
+    "files": [
+      "coding-md/screenshots/gallery-wall-texture_fullpage_fullpage_sp_20260901_005555.png",
+      "coding-md/screenshots/gallery-wall-texture_fullpage_fullpage_pc_20260901_005555.png"
+    ]
+  },
+  "viewports": {
+    "sp": { "width": 375, "height": 812 },
+    "pc": { "width": 1920, "height": 1080 }
+  },
+  "note": "初回実装後の目視ピクセル調整は未実施。"
+}

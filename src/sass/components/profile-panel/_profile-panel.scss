@@ -1,0 +1,351 @@
+@use "../../foundation/functions" as *;
+@use "../../foundation/mixins" as *;
+
+// ----- PROFILE スライドインパネル（Figma node 5:224 / 5:228） -----
+
+.profile-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  visibility: hidden;
+  // 閉じるときはスライド完了後に非表示（パッと消えない）
+  transition: visibility 0s linear 0.4s;
+}
+
+.profile-panel--open {
+  pointer-events: auto;
+  visibility: visible;
+  // 開くときは即座に表示してからスライド
+  transition: visibility 0s linear 0s;
+}
+
+.profile-panel__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.profile-panel--open .profile-panel__backdrop {
+  opacity: 1;
+}
+
+.profile-panel__wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-right: rem(80);
+  box-sizing: border-box;
+  pointer-events: none;
+
+  @include mq {
+    padding-right: 0;
+  }
+}
+
+.profile-panel__dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(#{rem(1580)}, calc(100% - #{rem(80)}));
+  max-width: 100%;
+  height: 100%;
+  max-height: 100svh;
+  padding: rem(80);
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 rem(6) rem(15) rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  pointer-events: auto;
+
+  @include mq {
+    width: 100%;
+    padding-top: rem(72);
+    padding-bottom: rem(40);
+    @include fluid-sp-range(padding-inline, 20, 40);
+  }
+}
+
+.profile-panel--open .profile-panel__dialog {
+  transform: translateX(0);
+}
+
+.profile-panel__close {
+  position: absolute;
+  top: rem(8);
+  right: rem(8);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(50);
+  height: rem(50);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 2px;
+  }
+}
+
+.profile-panel__close-icon {
+  display: block;
+  width: rem(24);
+  height: rem(24);
+}
+
+.profile-panel__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: calc(100svh - #{rem(160)});
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  @include mq-hero-pc {
+    @media (min-height: #{rem(972)}) {
+      overflow-y: hidden;
+    }
+  }
+
+  @include mq {
+    max-height: none;
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+
+    &::-webkit-scrollbar {
+      display: block;
+      width: rem(4);
+    }
+  }
+}
+
+.profile-panel__heading {
+  margin: 0;
+  box-sizing: border-box;
+  height: rem(100);
+  padding-bottom: rem(80);
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: rem(18);
+  line-height: rem(19.8);
+  letter-spacing: rem(7.2);
+  color: var(--color-text);
+
+  @include mq {
+    height: auto;
+    padding-bottom: rem(48);
+  }
+}
+
+.profile-panel__role {
+  margin: 0;
+  box-sizing: border-box;
+  height: rem(18);
+  padding-bottom: rem(4);
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(11);
+  line-height: rem(13.2);
+  letter-spacing: rem(6.6);
+  color: var(--color-text);
+
+  @include mq {
+    height: auto;
+    @include fluid-sp-range(font-size, 10, 11);
+  }
+}
+
+.profile-panel__name {
+  margin: 0;
+  box-sizing: border-box;
+  height: rem(56);
+  padding-bottom: rem(22);
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: rem(28);
+  line-height: rem(33.6);
+  color: var(--color-text);
+
+  @include mq {
+    height: auto;
+    @include fluid-sp-range(font-size, 22, 28);
+    @include fluid-sp-range(line-height, 26.4, 33.6);
+  }
+}
+
+.profile-panel__sns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: rem(32);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: rem(65);
+  padding-bottom: rem(50);
+  list-style: none;
+
+  @include mq {
+    height: auto;
+    gap: rem(24);
+    padding-bottom: rem(32);
+  }
+}
+
+.profile-panel__sns-link {
+  font-family: var(--font-en);
+  font-weight: 500;
+  font-size: rem(12);
+  line-height: rem(14.4);
+  letter-spacing: rem(1.2);
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.75;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+}
+
+.profile-panel__lead {
+  margin: 0;
+  padding-bottom: rem(22);
+
+  @include mq {
+    padding-bottom: rem(18);
+  }
+}
+
+.profile-panel__lead--ja {
+  box-sizing: border-box;
+  height: rem(98);
+  padding-bottom: rem(50);
+
+  @include mq {
+    height: auto;
+    padding-bottom: rem(32);
+  }
+}
+
+.profile-panel__text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+.profile-panel__text--lead {
+  font-size: rem(16);
+  line-height: rem(24);
+
+  @include mq {
+    @include fluid-sp-range(font-size, 14, 16);
+    @include fluid-sp-range(line-height, 21, 24);
+  }
+}
+
+.profile-panel__lead .profile-panel__text--lead + .profile-panel__text--lead {
+  margin-top: 0;
+}
+
+.profile-panel__sections {
+  margin: 0;
+  padding-left: rem(22);
+  border-left: 1px solid var(--color-border);
+  box-sizing: border-box;
+
+  @include mq {
+    padding-left: rem(16);
+  }
+}
+
+.profile-panel__section {
+  min-width: 0;
+}
+
+.profile-panel__section-heading {
+  margin: 0;
+  box-sizing: border-box;
+  height: rem(39);
+  padding-bottom: rem(22);
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: rem(12);
+  line-height: rem(16.8);
+  letter-spacing: rem(4.8);
+  color: var(--color-text);
+
+  @include mq {
+    height: auto;
+    padding-bottom: rem(16);
+  }
+}
+
+.profile-panel__section-body {
+  margin: 0;
+  box-sizing: border-box;
+  height: rem(113);
+  padding-bottom: rem(50);
+
+  @include mq {
+    height: auto;
+    padding-bottom: rem(32);
+  }
+
+  .profile-panel__text {
+    font-size: rem(13);
+    line-height: rem(20.8);
+
+    @include mq {
+      @include fluid-sp-range(font-size, 12, 13);
+      @include fluid-sp-range(line-height, 19.2, 20.8);
+    }
+  }
+
+  .profile-panel__text + .profile-panel__text {
+    margin-top: 0;
+  }
+}
+
+.profile-panel__section--last .profile-panel__section-body {
+  height: auto;
+  padding-bottom: 0;
+}
+
+// PROFILE 開閉時は overflow を触らない（スクロールバー維持）。
+// 背景スクロール停止は JS（wheel / touchmove / keydown）で行う。
