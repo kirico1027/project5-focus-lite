@@ -30,7 +30,7 @@
         }
       })();
     </script>
-    <title>CONTACT | TAKAHIRO KOBAYASHI</title>
+    <title>雑誌掲載情報 | NEWS | TAKAHIRO KOBAYASHI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -41,7 +41,7 @@
 
   </head>
   <body id="top">
-    <!-- WP: page-contact.php / CONTACT -->
+    <!-- WP: single-news.php / NEWS 詳細 雑誌掲載情報 -->
     <!-- WP: header / 全ページ共通 -->
 <header class="top-header js-home-fv-reveal" id="top-header">
   <div class="top-header__inner">
@@ -169,93 +169,30 @@
 
 
 
-    <main class="contact-page">
-      <!-- 下層ページ共通ヒーロー（BEM: page-hero）。マークアップ変更はこの1ファイルで全ページに反映されます。 -->
-<section class="page-hero " aria-labelledby="contact-hero-heading">
-  <div class="page-hero__inner container">
-    <h1 id="contact-hero-heading" class="page-hero__title">CONTACT</h1>
-  </div>
-</section>
+    <main class="news-page news-page--detail">
+      <article class="news-detail" aria-labelledby="news-detail-heading">
+        <div class="news-detail__inner">
+          <header class="news-detail__header">
+            <h1 class="news-detail__title" id="news-detail-heading">雑誌掲載情報</h1>
+            <time class="news-detail__date" datetime="2025-09-01">2025.09.01</time>
+          </header>
 
-
-      <section class="contact-form" aria-labelledby="contact-form-heading">
-        <h2 id="contact-form-heading" class="u-visually-hidden">お問い合わせフォーム</h2>
-        <div class="contact-form__inner">
-          <form class="contact-form__form" action="#" method="post" novalidate>
-            <p class="contact-form__lead">
-              ご質問・ご相談などお気軽にお問い合わせください。<br />
-              下記にお問合せ内容をご記入の上、送信ボタンを押してください。
+          <div class="news-detail__body">
+            <p class="news-detail__text">
+              写真が「Metro Life Magazine」2025年5月号に掲載されました。都市の瞬間を切り取った特集ページです。
             </p>
+          </div>
 
-            <div class="contact-form__field">
-              <label class="contact-form__label" for="contact-name">
-                NAME<span class="contact-form__required" aria-hidden="true">*</span>
-                <span class="u-visually-hidden">（必須）</span>
-              </label>
-              <input
-                class="contact-form__input"
-                type="text"
-                id="contact-name"
-                name="name"
-                placeholder="お名前"
-                autocomplete="name"
-                required
-              />
-            </div>
-
-            <div class="contact-form__field">
-              <label class="contact-form__label" for="contact-email">
-                EMAIL<span class="contact-form__required" aria-hidden="true">*</span>
-                <span class="u-visually-hidden">（必須）</span>
-              </label>
-              <input
-                class="contact-form__input"
-                type="email"
-                id="contact-email"
-                name="email"
-                placeholder="メールアドレス"
-                autocomplete="email"
-                required
-              />
-            </div>
-
-            <div class="contact-form__field">
-              <label class="contact-form__label" for="contact-message">
-                MESSAGE<span class="contact-form__required" aria-hidden="true">*</span>
-                <span class="u-visually-hidden">（必須）</span>
-              </label>
-              <textarea
-                class="contact-form__textarea"
-                id="contact-message"
-                name="message"
-                placeholder="お問い合わせ内容"
-                rows="6"
-                required
-              ></textarea>
-            </div>
-
-            <div class="contact-form__agree">
-              <label class="contact-form__agree-label" for="contact-privacy">
-                <input
-                  class="contact-form__checkbox"
-                  type="checkbox"
-                  id="contact-privacy"
-                  name="privacy"
-                  value="1"
-                  required
-                />
-                <span class="contact-form__agree-text">プライバシーポリシーに同意する</span>
-                <span class="u-visually-hidden">（必須）</span>
-              </label>
-              <a class="contact-form__privacy-link" href="./privacy.html">プライバシーポリシーはこちら</a>
-            </div>
-
-            <div class="contact-form__actions">
-              <button class="contact-form__submit" type="submit">SUBMIT</button>
-            </div>
-          </form>
+          <div class="news-detail__actions">
+            <a class="news-detail__back btn btn--ghost" href="./index.html" data-nav="news-back">
+              <svg class="news-detail__back-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path fill="currentColor" d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+              </svg>
+              <span>BACK TO LIST</span>
+            </a>
+          </div>
         </div>
-      </section>
+      </article>
     </main>
 
     <!-- WP: footer / 全ページ共通 -->

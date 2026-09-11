@@ -37,13 +37,13 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,400&display=swap"
     />
-    <link rel="stylesheet" href="./public/assets/css/main.css?v=75" />
+    <link rel="stylesheet" href="./public/assets/css/main.css?v=83" />
 
   </head>
-  <body id="top">
+  <body id="top" class="home">
     <!-- WP: front-page.php / トップページ -->
     <!-- WP: header / 全ページ共通 -->
-<header class="top-header" id="top-header">
+<header class="top-header js-home-fv-reveal" id="top-header">
   <div class="top-header__inner">
     <nav class="top-header__nav" aria-label="メインナビゲーション（左）">
       <a class="top-header__link" href="#" data-profile-open data-nav="profile">PROFILE</a>
@@ -171,7 +171,7 @@
 
     <main class="top-page">
       <section class="hero" aria-labelledby="hero-heading">
-        <div class="hero__media" aria-hidden="true">
+        <div class="hero__media js-home-fv-reveal" aria-hidden="true">
           <figure class="hero__figure hero__figure--left">
             <img
               class="hero__img"
@@ -193,15 +193,28 @@
             />
           </figure>
         </div>
-        <div class="hero__content">
-          <p class="hero__label">PHOTOGRAPHER</p>
-          <h1 id="hero-heading" class="hero__title">
-            <span class="hero__title-line">TAKAHIRO</span>
-            <span class="hero__title-line">KOBAYASHI</span>
-          </h1>
-          <div class="hero__actions">
-            <a class="btn btn--fill" href="./works.html">WORKS</a>
-            <a class="btn btn--ghost" href="./gallery.html">GALLERY</a>
+        <div class="hero__content js-home-fv-reveal">
+          <div class="hero__content-layer hero__content-layer--blur" aria-hidden="true">
+            <p class="hero__label">PHOTOGRAPHER</p>
+            <p class="hero__title">
+              <span class="hero__title-line">TAKAHIRO</span>
+              <span class="hero__title-line">KOBAYASHI</span>
+            </p>
+            <div class="hero__actions">
+              <span class="btn btn--fill">WORKS</span>
+              <span class="btn btn--ghost">GALLERY</span>
+            </div>
+          </div>
+          <div class="hero__content-layer hero__content-layer--sharp">
+            <p class="hero__label">PHOTOGRAPHER</p>
+            <h1 id="hero-heading" class="hero__title">
+              <span class="hero__title-line">TAKAHIRO</span>
+              <span class="hero__title-line">KOBAYASHI</span>
+            </h1>
+            <div class="hero__actions">
+              <a class="btn btn--fill" href="./works.html">WORKS</a>
+              <a class="btn btn--ghost" href="./gallery.html">GALLERY</a>
+            </div>
           </div>
         </div>
       </section>
@@ -312,11 +325,11 @@
             </li>
             <li class="news__item">
               <time class="news__date" datetime="2025-09-01">2025.09.01</time>
-              <a class="news__link" href="#" data-nav="news-item">個展開催のお知らせ</a>
+              <a class="news__link" href="./news-solo-exhibition.html" data-nav="news-item">個展開催のお知らせ</a>
             </li>
             <li class="news__item">
               <time class="news__date" datetime="2025-09-01">2025.09.01</time>
-              <a class="news__link" href="#" data-nav="news-item">雑誌掲載情報</a>
+              <a class="news__link" href="./news-magazine-feature.html" data-nav="news-item">雑誌掲載情報</a>
             </li>
           </ul>
         </div>
@@ -344,6 +357,6 @@
   <p class="site-footer__copy">© TAKAHIRO KOBAYASHI</p>
 </footer>
 
-    <script src="./public/assets/js/script.js?v=9"></script>
+    <script src="./public/assets/js/script.js?v=12"></script>
   </body>
 </html>

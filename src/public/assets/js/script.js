@@ -183,8 +183,69 @@ function initPageTop() {
   });
 }
 
+function initHomeFvReveal() {
+  if (!document.body.classList.contains("home")) return;
+
+  const targets = Array.from(document.querySelectorAll(".js-home-fv-reveal"));
+  if (!targets.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const markRevealed = (el) => {
+    el.classList.add("is-revealed");
+  };
+
+  const start = (immediate) => {
+    targets.forEach((el) => {
+      if (immediate) {
+        el.classList.add("is-inview", "is-revealed");
+        return;
+      }
+
+      el.classList.add("is-inview");
+      el.addEventListener(
+        "animationend",
+        (event) => {
+          if (event.target !== el) return;
+          if (!String(event.animationName || "").startsWith("home-fv-")) return;
+          markRevealed(el);
+        },
+        { once: true }
+      );
+    });
+  };
+
+  if (reduceMotion) {
+    start(true);
+    return;
+  }
+
+  // フォント差し替えで flex 中央が再計算されないよう、開始前に待つ（遅延上限あり）
+  const startAfterFonts = () => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => start(false));
+    });
+  };
+
+  const fontsReady =
+    document.fonts && document.fonts.ready
+      ? document.fonts.ready
+      : Promise.resolve();
+  const fontsTimeout = new Promise((resolve) => {
+    window.setTimeout(resolve, 400);
+  });
+
+  Promise.race([fontsReady, fontsTimeout]).then(startAfterFonts);
+
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+    start(true);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const drawerApi = initHeaderDrawer();
   initProfilePanel(drawerApi);
   initPageTop();
+  initHomeFvReveal();
 });

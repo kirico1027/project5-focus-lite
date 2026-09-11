@@ -86,10 +86,8 @@
 .hero__content {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: grid;
+  justify-items: center;
   padding: rem(80);
   max-width: rem(642);
 
@@ -99,6 +97,30 @@
     padding: rem(24) rem(16);
     box-sizing: border-box;
   }
+}
+
+.hero__content-layer {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// ぼかしは固定。opacity だけ落としてシャープ側とクロスフェードする
+.hero__content-layer--blur {
+  filter: blur(18px);
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.hero__content-layer--sharp {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__label {
@@ -507,5 +529,146 @@
   &:focus-visible {
     outline: 2px solid var(--color-text);
     outline-offset: 3px;
+  }
+}
+
+// ----- HOME FV load reveal（リロード時・scale + opacity + blur） -----
+@keyframes home-fv-media {
+  from {
+    opacity: 0;
+    filter: blur(22px);
+    transform: translateZ(0) scale(1.08);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateZ(0) scale(1);
+  }
+}
+
+@keyframes home-fv-content {
+  from {
+    opacity: 0;
+    transform: translateZ(0) scale(1.06);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+  }
+}
+
+// blur 値は動かさない（文字ラスタ切替を避ける）。見た目の解除は opacity で行う
+@keyframes home-fv-content-blur {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes home-fv-content-sharp {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes home-fv-header {
+  from {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html.js .home .hero__media.js-home-fv-reveal:not(.is-inview) {
+    opacity: 0;
+    filter: blur(22px);
+    transform: translateZ(0) scale(1.08);
+  }
+
+  html.js .home .hero__content.js-home-fv-reveal:not(.is-inview) {
+    opacity: 0;
+    transform: translateZ(0) scale(1.06);
+    backface-visibility: hidden;
+
+    .hero__content-layer--blur {
+      opacity: 1;
+    }
+
+    .hero__content-layer--sharp {
+      opacity: 0;
+    }
+  }
+
+  html.js .home .top-header.js-home-fv-reveal:not(.is-inview) {
+    opacity: 0;
+    transform: translateY(-28px);
+  }
+
+  html.js .home .hero__media.js-home-fv-reveal.is-inview:not(.is-revealed) {
+    transform-origin: center center;
+    animation: home-fv-media 2.6s cubic-bezier(0.12, 0.8, 0.18, 1) 0s both;
+  }
+
+  html.js .home .top-header.js-home-fv-reveal.is-inview:not(.is-revealed) {
+    animation: home-fv-header 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+  }
+
+  html.js .home .hero__content.js-home-fv-reveal.is-inview:not(.is-revealed) {
+    transform-origin: center center;
+    backface-visibility: hidden;
+    animation: home-fv-content 2.6s cubic-bezier(0.12, 0.8, 0.18, 1) 0.35s both;
+
+    .hero__content-layer--blur {
+      animation: home-fv-content-blur 2.6s cubic-bezier(0.12, 0.8, 0.18, 1) 0.35s both;
+    }
+
+    .hero__content-layer--sharp {
+      animation: home-fv-content-sharp 2.6s cubic-bezier(0.12, 0.8, 0.18, 1) 0.35s both;
+    }
+  }
+
+  // 終了時に transform/filter を none へ落とすと縦方向の 1px スナップが出るため、最終値を維持する
+  html.js .home .hero__media.js-home-fv-reveal.is-revealed {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateZ(0) scale(1);
+    animation: none;
+  }
+
+  html.js .home .hero__content.js-home-fv-reveal.is-revealed {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+    animation: none;
+
+    .hero__content-layer--blur {
+      opacity: 0;
+      visibility: hidden;
+      animation: none;
+    }
+
+    .hero__content-layer--sharp {
+      opacity: 1;
+      animation: none;
+    }
+  }
+
+  html.js .home .top-header.js-home-fv-reveal.is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+    animation: none;
   }
 }
