@@ -243,9 +243,108 @@ function initHomeFvReveal() {
   });
 }
 
+function initHomeScrollReveal() {
+  if (!document.body.classList.contains("home")) return;
+
+  const targets = Array.from(document.querySelectorAll(".js-scroll-reveal"));
+  if (!targets.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const defaultStart = 90;
+  const threshold = 0.12;
+
+  const getRevealStart = (el) => {
+    const raw = Number(el.getAttribute("data-reveal-start"));
+    if (Number.isFinite(raw) && raw > 0 && raw <= 100) return raw;
+    return defaultStart;
+  };
+
+  const getRootMargin = (start) => {
+    const inset = Math.max(0, 100 - start);
+    return `0px 0px -${inset}% 0px`;
+  };
+
+  const markRevealed = (el) => {
+    el.classList.add("is-revealed");
+  };
+
+  const play = (el) => {
+    if (el.classList.contains("is-inview")) return;
+    el.classList.add("is-inview");
+    el.addEventListener(
+      "animationend",
+      (event) => {
+        if (event.target !== el) return;
+        if (!String(event.animationName || "").startsWith("home-scroll-reveal")) return;
+        markRevealed(el);
+      },
+      { once: true }
+    );
+  };
+
+  const prime = () => {
+    targets.forEach((el) => {
+      el.classList.add("is-inview", "is-revealed");
+    });
+  };
+
+  if (reduceMotion) {
+    document.documentElement.classList.add("scroll-reveal-active");
+    prime();
+    return;
+  }
+
+  document.documentElement.classList.add("scroll-reveal-active");
+
+  const isInitiallyVisible = (el) => {
+    const rect = el.getBoundingClientRect();
+    const viewBottom = window.innerHeight * (getRevealStart(el) / 100);
+    return rect.top < viewBottom && rect.bottom > 0;
+  };
+
+  // start 値が異なる要素は別 Observer（独立した発火位置）
+  const observers = new Map();
+
+  const observe = (el) => {
+    const start = getRevealStart(el);
+    const rootMargin = getRootMargin(start);
+    let observer = observers.get(rootMargin);
+
+    if (!observer) {
+      observer = new IntersectionObserver(
+        (entries, currentObserver) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            play(entry.target);
+            currentObserver.unobserve(entry.target);
+          });
+        },
+        { root: null, rootMargin, threshold }
+      );
+      observers.set(rootMargin, observer);
+    }
+
+    observer.observe(el);
+  };
+
+  targets.forEach((el) => {
+    if (isInitiallyVisible(el)) {
+      play(el);
+      return;
+    }
+    observe(el);
+  });
+
+  window.addEventListener("pageshow", (event) => {
+    if (!event.persisted) return;
+    prime();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const drawerApi = initHeaderDrawer();
   initProfilePanel(drawerApi);
   initPageTop();
   initHomeFvReveal();
+  initHomeScrollReveal();
 });
